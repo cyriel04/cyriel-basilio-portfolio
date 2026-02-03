@@ -1,18 +1,58 @@
+.link {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
 .contentCard {
 	min-width: 275px;
-	background-color: #23283e !important;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px !important;
+	max-width: 380px;
+	background-color: var(--bg-card) !important;
+	border: 1px solid var(--border) !important;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 
 	p,
-	.title {
-		color: #90a0d9;
+	.title,
+	.description {
+		color: var(--text-primary) !important;
+	}
+
+	.company {
+		color: var(--accent) !important;
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	.description {
+		font-size: 0.9rem;
+		line-height: 1.6;
+		margin-bottom: 1rem;
+		color: var(--text-secondary) !important;
+	}
+
+	.projectStack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.tech {
+		font-size: 0.75rem;
+		padding: 0.25rem 0.5rem;
+		background: rgba(91, 163, 245, 0.15);
+		border-radius: 4px;
+		color: var(--accent);
 	}
 
 	@media (max-width: 767px) {
 		min-width: unset;
+		max-width: 100%;
 	}
 
 	&:hover {
-		transform: translateY(-7px);
+		transform: translateY(-4px);
+		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3) !important;
+		border-color: rgba(91, 163, 245, 0.3) !important;
 	}
 }

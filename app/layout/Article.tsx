@@ -1,13 +1,13 @@
-import React from 'react'
 import ContentCard from '../components/ContentCard'
+import { PROJECTS } from '../constants'
 import styles from './Article.module.scss'
 
 const Article = () => {
 	return (
 		<div className={styles.article}>
-			<ContentCard />
-			<ContentCard />
-			<ContentCard />
+			{PROJECTS.map((project, index) => (
+				<ContentCard key={index} project={project} className={styles.articleCard} />
+			))}
 		</div>
 	)
 }

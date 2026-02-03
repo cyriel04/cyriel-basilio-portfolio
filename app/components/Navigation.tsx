@@ -1,24 +1,31 @@
 import React from 'react'
+import Link from 'next/link'
 import styles from './Navigation.module.scss'
 import { Typography } from '@mui/material'
 
 const Navigation = () => {
 	return (
 		<nav id="navigation" className={styles.navigation}>
-			<div className="logo">
-				<Typography fontWeight={700} className={styles.title} variant="h5">
+			<Link href="/" className={styles.logo} aria-label="Home">
+				<Typography fontWeight={700} className={styles.title} variant="subtitle1">
 					CB
 				</Typography>
-			</div>
+			</Link>
 			<ul className={styles.links}>
 				<li>
-					<a href="#">projects</a>
+					<a href="/#experience">experience</a>
 				</li>
 				<li>
-					<a href="#">skills</a>
+					<a href="/#projects">projects</a>
 				</li>
 				<li>
-					<a href="#">contact</a>
+					<a href="/#skills">skills</a>
+				</li>
+				<li>
+					<a href="/#education">education</a>
+				</li>
+				<li>
+					<a href="/contact">contact</a>
 				</li>
 			</ul>
 		</nav>

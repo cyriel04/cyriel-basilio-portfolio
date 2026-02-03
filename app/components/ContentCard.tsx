@@ -1,22 +1,50 @@
 import { Card, CardContent, Typography } from '@mui/material'
-import React from 'react'
+import cx from 'classnames'
+import Link from 'next/link'
+
 import styles from './ContentCard.module.scss'
 
-const ContentCard = () => {
-	return (
-		<Card className={styles.contentCard}>
+export type Project = {
+	title: string
+	url: string | null
+	company: string
+	stack: string[]
+	description: string
+}
+
+const ContentCard = ({ project, className }: { project: Project; className?: string }) => {
+	const content = (
+		<Card className={cx(styles.contentCard, className)}>
 			<CardContent>
+				<Link href={project.url ?? ''} target="_blank" rel="noopener noreferrer" className={styles.link}>
 				<Typography gutterBottom variant="h6" component="div" className={styles.title}>
-					Lorem Ipsum
+					{project.title}
 				</Typography>
-				<Typography variant="body2">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tortor magna, auctor nec faucibus at, vulputate cursus
-					sapien. Phasellus tempor, tellus nec porttitor pellentesque, ex turpis convallis leo, sit amet interdum enim felis sit
-					amet diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas.
+				</Link>
+				<Typography variant="caption" className={styles.company}>
+					{project.company}
 				</Typography>
+				<Typography variant="body2" className={styles.description}>
+					{project.description}
+				</Typography>
+				<div className={styles.projectStack}>
+					{project.stack.map((tech) => (
+						<span key={tech} className={styles.tech}>
+							{tech}
+						</span>
+					))}
+				</div>
 			</CardContent>
 		</Card>
 	)
+
+	if (project.url) {
+		return (
+				content
+		)
+	}
+
+	return content
 }
 
 export default ContentCard

@@ -1,12 +1,19 @@
 :root {
+	--nav-height: 72px;
 	--max-width: 1100px;
 	--border-radius: 12px;
-	--font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
-		'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+	--font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", monospace;
 
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+	/* Readable dark theme palette */
+	--bg-primary: #1a1d2e;
+	--bg-secondary: #252940;
+	--bg-card: #2d3348;
+	--text-primary: #e8ecf4;
+	--text-secondary: #b8c4dc;
+	--text-muted: #8a9bb8;
+	--accent: #5ba3f5;
+	--accent-hover: #7bb8ff;
+	--border: rgba(184, 196, 220, 0.15);
 }
 
 * {
@@ -19,18 +26,18 @@ html,
 body {
 	max-width: 100vw;
 	overflow-x: hidden;
-	background: #23283e;
-}
-
-body {
-	color: rgb(var(--foreground-rgb));
+	overflow-y: auto;
+	min-height: 100%;
+	background: var(--bg-primary);
+	color: var(--text-primary);
 }
 
 a {
-	color: inherit;
+	color: var(--accent);
 	text-decoration: none;
+}
 
-	&:hover {
-		text-decoration: underline;
-	}
+a:hover {
+	color: var(--accent-hover);
+	text-decoration: underline;
 }

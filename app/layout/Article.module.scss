@@ -1,12 +1,44 @@
 .article {
 	display: flex;
 	gap: 24px;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: 0.5rem;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
 
-	@media (max-width: 1200px) {
-		flex-wrap: wrap;
+	&::-webkit-scrollbar {
+		height: 8px;
 	}
 
-	@media (max-width: 1200px) {
-		flex-direction: column;
+	&::-webkit-scrollbar-track {
+		background: var(--bg-secondary);
+		border-radius: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--accent);
+		border-radius: 4px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: var(--accent-hover);
+	}
+
+	.articleCard {
+		/* Slightly smaller than 4-per-row to show a peek of the next item */
+		flex: 0 0 calc(24% - 18px);
+		min-width: 260px;
+
+		@media (max-width: 1200px) {
+			/* 2 per row with peek of 3rd */
+			flex: 0 0 calc(48% - 12px);
+		}
+
+		@media (max-width: 800px) {
+			/* 1 per row with peek of next */
+			flex: 0 0 calc(92% - 24px);
+		}
 	}
 }
