@@ -13,19 +13,19 @@ const Navigation = () => {
 			</Link>
 			<ul className={styles.links}>
 				<li>
-					<a href="/#experience">experience</a>
+					<Link href="/#experience">experience</Link>
 				</li>
 				<li>
-					<a href="/#projects">projects</a>
+					<Link href="/#projects">projects</Link>
 				</li>
 				<li>
-					<a href="/#skills">skills</a>
+					<Link href="/#skills">skills</Link>
 				</li>
 				<li>
-					<a href="/#education">education</a>
+					<Link href="/#education">education</Link>
 				</li>
 				<li>
-					<a href="/contact">contact</a>
+					<Link href="/contact">contact</Link>
 				</li>
 			</ul>
 		</nav>
