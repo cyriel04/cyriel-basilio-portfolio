@@ -55,4 +55,14 @@
 		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3) !important;
 		border-color: rgba(91, 163, 245, 0.3) !important;
 	}
+
+	&.noLink {
+		cursor: default;
+
+		&:hover {
+			transform: none;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+			border-color: var(--border) !important;
+		}
+	}
 }

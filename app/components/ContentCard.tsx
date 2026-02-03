@@ -12,15 +12,20 @@ export type Project = {
 	description: string
 }
 
-const ContentCard = ({ project, className }: { project: Project; className?: string }) => {
-	const content = (
-		<Card className={cx(styles.contentCard, className)}>
-			<CardContent>
-				<Link href={project.url ?? ''} target="_blank" rel="noopener noreferrer" className={styles.link}>
+const ContentCard = ({ project, className }: { project: Project; className?: string }) => (
+	<Card className={cx(styles.contentCard, className, !project.url && styles.noLink)}>
+		<CardContent>
+			{project.url ? (
+				<Link href={project.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
+					<Typography gutterBottom variant="h6" component="div" className={styles.title}>
+						{project.title}
+					</Typography>
+				</Link>
+			) : (
 				<Typography gutterBottom variant="h6" component="div" className={styles.title}>
 					{project.title}
 				</Typography>
-				</Link>
+			)}
 				<Typography variant="caption" className={styles.company}>
 					{project.company}
 				</Typography>
@@ -35,16 +40,7 @@ const ContentCard = ({ project, className }: { project: Project; className?: str
 					))}
 				</div>
 			</CardContent>
-		</Card>
-	)
-
-	if (project.url) {
-		return (
-				content
-		)
-	}
-
-	return content
-}
+	</Card>
+)
 
 export default ContentCard
