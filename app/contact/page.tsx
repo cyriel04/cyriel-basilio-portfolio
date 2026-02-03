@@ -55,7 +55,7 @@ export default function Contact() {
 						<Typography variant="subtitle1" fontWeight={600}>
 							LinkedIn
 						</Typography>
-						<Typography variant="body2">linkedin.com/in/cyriel-basilio</Typography>
+						<Typography variant="body2">linkedin.com</Typography>
 					</a>
 
 					<a

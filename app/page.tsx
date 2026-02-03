@@ -70,7 +70,8 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className={styles.section} id="experience">
+				<section className={styles.section}>
+					<span id="experience" className={styles.scrollAnchor} aria-hidden="true" />
 					<Typography variant="h5" fontWeight={600} className={styles.sectionTitle}>
 						EXPERIENCE
 					</Typography>
@@ -88,14 +89,16 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className={styles.section} id="projects">
+				<section className={styles.section}>
+					<span id="projects" className={styles.scrollAnchor} aria-hidden="true" />
 					<Typography variant="h5" fontWeight={600} className={styles.sectionTitle}>
 						PROJECTS
 					</Typography>
 					<Article />
 				</section>
 
-				<section className={styles.section} id="skills">
+				<section className={styles.section}>
+					<span id="skills" className={styles.scrollAnchor} aria-hidden="true" />
 					<Typography variant="h5" fontWeight={600} className={styles.sectionTitle}>
 						SKILLS
 					</Typography>
@@ -108,7 +111,8 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className={styles.section} id="education">
+				<section className={styles.section}>
+					<span id="education" className={styles.scrollAnchor} aria-hidden="true" />
 					<Typography variant="h5" fontWeight={600} className={styles.sectionTitle}>
 						EDUCATION
 					</Typography>

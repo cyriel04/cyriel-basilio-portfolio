@@ -67,6 +67,12 @@
 	text-align: left;
 }
 
+.scrollAnchor {
+	display: block;
+	padding-top: calc(var(--nav-height) + 1rem);
+	margin-top: calc(-1 * (var(--nav-height) + 1rem));
+}
+
 .sectionTitle {
 	margin-bottom: 1.5rem !important;
 	text-align: center;

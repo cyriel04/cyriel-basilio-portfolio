@@ -1,5 +1,5 @@
 :root {
-	--nav-height: 72px;
+	--nav-height: 88px;
 	--max-width: 1100px;
 	--border-radius: 12px;
 	--font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", monospace;
@@ -20,6 +20,11 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+}
+
+html {
+	scroll-padding-top: 2rem;
+	scroll-behavior: smooth;
 }
 
 html,
