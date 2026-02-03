@@ -1,5 +1,5 @@
 {
-	"name": "portfolio2023",
+	"name": "cyriel-basilio-portfolio",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -9,22 +9,22 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@emotion/cache": "^11.11.0",
-		"@emotion/react": "^11.11.3",
-		"@emotion/styled": "^11.11.0",
-		"@mui/icons-material": "^5.15.15",
-		"@mui/material": "^5.15.9",
-		"@mui/material-nextjs": "^5.15.9",
+		"@emotion/cache": "^11.14.0",
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.1",
+		"@mui/icons-material": "^7.3.7",
+		"@mui/material": "^7.3.7",
+		"@mui/material-nextjs": "^7.3.7",
 		"@types/node": "20.11.17",
 		"@types/react": "18.2.55",
 		"@types/react-dom": "18.2.19",
 		"classnames": "^2.5.1",
-		"eslint": "8.56.0",
-		"eslint-config-next": "14.1.0",
-		"next": "^14.1.0",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"sass": "^1.70.0",
-		"typescript": "5.3.3"
+		"eslint": "^9.39.2",
+		"eslint-config-next": "^15.1.0",
+		"next": "^15.1.0",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"sass": "^1.97.3",
+		"typescript": "^5.9.3"
 	}
 }
