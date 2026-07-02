@@ -66,7 +66,7 @@ export const PROJECTS = [
 		title: "Forecast – AI-Powered Project & Resource Management",
 		url: "https://forecast.app/",
 		company: "ProSource",
-		stack: ["React", "JavaScript", "GraphQL", "MySQL"],
+		stack: ["React", "JavaScript", "GraphQL", "MySQL", "Java"],
 		description:
 			"Contributing to the Forecast platform following its acquisition by Accelo in 2025. Building the timesheet module end-to-end: designed MySQL schema for statuses and audit logs, implemented GraphQL resolvers, and built the React frontend. Owning full-stack scope independently in a JavaScript codebase distinct from the TypeScript-based Accelo platform.",
 	},
@@ -74,7 +74,7 @@ export const PROJECTS = [
 		title: "Accelo V4 – Professional Services Automation Platform",
 		url: "https://accelo.com/",
 		company: "ProSource",
-		stack: ["Next.js", "Styled-components", "SCSS", "TypeScript", "React", "Jest", "GraphQL (Apollo)"],
+		stack: ["Next.js", "Styled-components", "SCSS", "TypeScript", "React", "Jest", "GraphQL (Apollo)", "Angular", "Perl"],
 		description:
 			"Built and shipped features for Accelo V4, a PSA platform used globally by agencies and consulting firms to manage projects, billing, timesheets, and client work. Leveraged and extended the internal design system, conducted code reviews, and mentored peers. Collaborated daily with AU/PH developers across time zones; optimized for speed and scalability and maintained Jest unit test coverage.",
 	},
