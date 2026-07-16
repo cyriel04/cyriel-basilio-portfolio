@@ -5,7 +5,8 @@ export const PROFILE = {
 	email: "cyrielneil@gmail.com",
 	linkedin: "https://linkedin.com/in/cyriel-basilio/",
 	github: "https://github.com/cyriel04",
-	resumeUrl: "https://drive.google.com/file/d/1YbxidyF1E-JlSyvBb7CEaqaK9iPDuEIS/view?usp=drive_link",
+	resumeUrl:
+		"https://drive.google.com/file/d/1YbxidyF1E-JlSyvBb7CEaqaK9iPDuEIS/view?usp=drive_link",
 };
 
 export const SUMMARY =
@@ -74,7 +75,17 @@ export const PROJECTS = [
 		title: "Accelo V4 – Professional Services Automation Platform",
 		url: "https://accelo.com/",
 		company: "ProSource",
-		stack: ["Next.js", "Styled-components", "SCSS", "TypeScript", "React", "Jest", "GraphQL (Apollo)", "Angular", "Perl"],
+		stack: [
+			"Next.js",
+			"Styled-components",
+			"SCSS",
+			"TypeScript",
+			"React",
+			"Jest",
+			"GraphQL (Apollo)",
+			"Angular",
+			"Perl",
+		],
 		description:
 			"Built and shipped features for Accelo V4, a PSA platform used globally by agencies and consulting firms to manage projects, billing, timesheets, and client work. Leveraged and extended the internal design system, conducted code reviews, and mentored peers. Collaborated daily with AU/PH developers across time zones; optimized for speed and scalability and maintained Jest unit test coverage.",
 	},
@@ -82,7 +93,15 @@ export const PROJECTS = [
 		title: "Accelo Design System",
 		url: null,
 		company: "ProSource (Internal)",
-		stack: ["React", "Styled-components", "TypeScript", "Storybook", "Jest", "MUI", "Figma"],
+		stack: [
+			"React",
+			"Styled-components",
+			"TypeScript",
+			"Storybook",
+			"Jest",
+			"MUI",
+			"Figma",
+		],
 		description:
 			"Designed, built, and maintained the internal component library used across the Accelo platform — documented in Storybook, built on MUI. Worked closely with UI/UX designers to translate mockups into reusable, accessible components. Managed library deployment and code reviews; collaborated with AU/PH teams on cross-platform and accessibility requirements.",
 	},
@@ -90,7 +109,16 @@ export const PROJECTS = [
 		title: "Scouty Website",
 		url: "https://www.scouty.com/",
 		company: "Contact Creatives",
-		stack: ["React", "Styled-components", "SCSS", "JavaScript", "Cypress", "Stripe", "MixPanel", "Node.js"],
+		stack: [
+			"React",
+			"Styled-components",
+			"SCSS",
+			"JavaScript",
+			"Cypress",
+			"Stripe",
+			"MixPanel",
+			"Node.js",
+		],
 		description:
 			"Built and shipped the Scouty web application alongside a UK-based team, working independently at startup pace. Integrated Stripe payment flows end-to-end and implemented Cypress E2E test suites. Integrated MixPanel analytics to track key user events and support product decisions.",
 	},
@@ -114,7 +142,14 @@ export const PROJECTS = [
 		title: "Cartrack Fleet Web Application",
 		url: "https://fleetweb-sg.cartrack.com/",
 		company: "Cartrack Philippines",
-		stack: ["React", "SCSS", "Redux", "Styled-components", "TypeScript", "Google Maps"],
+		stack: [
+			"React",
+			"SCSS",
+			"Redux",
+			"Styled-components",
+			"TypeScript",
+			"Google Maps",
+		],
 		description:
 			"Built a real-time fleet management dashboard with Google Maps integration. Focused on performance optimization for a data-heavy, map-based product.",
 	},
@@ -123,14 +158,16 @@ export const PROJECTS = [
 		url: "https://unionbankph.com/",
 		company: "WhiteCloak Technologies",
 		stack: ["React", "Drupal 8", "SCSS", "Ant Design", "PHP", "MySQL"],
-		description: "Built the UnionBank marketing website using React and Drupal 8.",
+		description:
+			"Built the UnionBank marketing website using React and Drupal 8.",
 	},
 	{
 		title: "UnionBank Mobile Back Office",
 		url: null,
 		company: "WhiteCloak Technologies (Internal)",
 		stack: ["React", "Java Spring", "Java 8"],
-		description: "Contributed to the mobile banking back-office application built with Java Spring.",
+		description:
+			"Contributed to the mobile banking back-office application built with Java Spring.",
 	},
 ];
 

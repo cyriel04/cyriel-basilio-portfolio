@@ -1,10 +1,10 @@
-import { Typography } from '@mui/material'
-import { Email, Phone, LinkedIn, GitHub } from '@mui/icons-material'
-import Link from 'next/link'
-import Navigation from '../components/Navigation'
-import Footer from '../components/Footer'
-import { PROFILE } from '../constants'
-import styles from './contact.module.css'
+import { Typography } from "@mui/material";
+import { Email, Phone, LinkedIn, GitHub } from "@mui/icons-material";
+import Link from "next/link";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import { PROFILE } from "../constants";
+import styles from "./contact.module.css";
 
 export default function Contact() {
 	return (
@@ -33,7 +33,7 @@ export default function Contact() {
 					</a>
 
 					<a
-						href={`tel:${PROFILE.phone.replace(/\s/g, '')}`}
+						href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
 						className={styles.contactCard}
 						target="_blank"
 						rel="noopener noreferrer"
@@ -78,5 +78,5 @@ export default function Contact() {
 			</main>
 			<Footer />
 		</div>
-	)
+	);
 }

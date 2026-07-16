@@ -1,13 +1,17 @@
-import React from 'react'
-import Link from 'next/link'
-import styles from './Navigation.module.scss'
-import { Typography } from '@mui/material'
+import React from "react";
+import Link from "next/link";
+import styles from "./Navigation.module.scss";
+import { Typography } from "@mui/material";
 
 const Navigation = () => {
 	return (
 		<nav id="navigation" className={styles.navigation}>
 			<Link href="/" className={styles.logo} aria-label="Home">
-				<Typography fontWeight={700} className={styles.title} variant="subtitle1">
+				<Typography
+					fontWeight={700}
+					className={styles.title}
+					variant="subtitle1"
+				>
 					CB
 				</Typography>
 			</Link>
@@ -29,7 +33,7 @@ const Navigation = () => {
 				</li>
 			</ul>
 		</nav>
-	)
-}
+	);
+};
 
-export default Navigation
+export default Navigation;

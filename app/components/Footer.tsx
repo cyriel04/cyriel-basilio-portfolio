@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styles from './Footer.module.scss'
+import Link from "next/link";
+import styles from "./Footer.module.scss";
 
 const Footer = () => {
 	return (
@@ -19,7 +19,7 @@ const Footer = () => {
 			</div>
 			<p className={styles.copyright}>© {new Date().getFullYear()}</p>
 		</footer>
-	)
-}
+	);
+};
 
-export default Footer
+export default Footer;
