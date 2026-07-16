@@ -35,8 +35,5 @@
 	},
 	"devDependencies": {
 		"prettier": "^3.4.2"
-	},
-	"optionalDependencies": {
-		"@next/swc-darwin-x64": "15.5.11"
 	}
 }
