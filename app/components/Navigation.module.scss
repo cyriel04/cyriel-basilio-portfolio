@@ -50,6 +50,49 @@
 	list-style: none;
 }
 
+.menuButton {
+	display: none !important;
+	color: var(--text-primary) !important;
+}
+
+.drawerPaper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 1rem;
+	min-width: 220px;
+	padding: 1.25rem 1.5rem;
+	background-color: var(--bg-primary) !important;
+	color: var(--text-primary);
+}
+
+.closeButton {
+	color: var(--text-primary) !important;
+}
+
+.drawerLinks {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 1.25rem;
+	width: 100%;
+}
+
+.drawerLinks li {
+	list-style: none;
+}
+
+.drawerLinks a {
+	color: var(--text-secondary);
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.drawerLinks a:hover {
+	color: var(--accent);
+	text-decoration: none;
+}
+
 @media (max-width: 767px) {
 	.navigation {
 		padding: 1.25rem 1.5rem;
@@ -57,5 +100,9 @@
 
 	.links {
 		display: none;
+	}
+
+	.menuButton {
+		display: inline-flex !important;
 	}
 }
