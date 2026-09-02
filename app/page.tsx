@@ -25,13 +25,19 @@ export default function Home() {
 				<section className={styles.hero}>
 					<Typography
 						variant="h2"
+						component="h1"
 						fontWeight={700}
 						className={styles.heroTitle}
 					>
 						Hi, I&apos;m{" "}
 						<span className={styles.nameText}>{PROFILE.name}.</span>
 					</Typography>
-					<Typography variant="h5" fontWeight={500} className={styles.subtitle}>
+					<Typography
+						variant="h5"
+						component="p"
+						fontWeight={500}
+						className={styles.subtitle}
+					>
 						{PROFILE.title}
 					</Typography>
 					<Typography
@@ -81,6 +87,7 @@ export default function Home() {
 					/>
 					<Typography
 						variant="h5"
+						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
@@ -108,6 +115,7 @@ export default function Home() {
 					/>
 					<Typography
 						variant="h5"
+						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
@@ -124,6 +132,7 @@ export default function Home() {
 					/>
 					<Typography
 						variant="h5"
+						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
@@ -146,6 +155,7 @@ export default function Home() {
 					/>
 					<Typography
 						variant="h5"
+						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
