@@ -12,7 +12,7 @@ const inter = Inter({
 	display: "swap",
 });
 
-const siteUrl = "https://cyriel-basilio-portfolio.vercel.app";
+const siteUrl = "https://cyriel-basilio.vercel.app";
 const title = `${PROFILE.name} | ${PROFILE.title}`;
 const description =
 	"Frontend developer with 7+ years specializing in React and TypeScript. Portfolio featuring experience, projects, and skills.";
@@ -60,6 +60,9 @@ export const metadata: Metadata = {
 	robots: {
 		index: true,
 		follow: true,
+	},
+	verification: {
+		google: "3z1SI6nj_wpVWBO7qMPPcew2NAGpmXyP-4_heEhhXQ0",
 	},
 };
 
