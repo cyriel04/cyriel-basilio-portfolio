@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Typography } from "@mui/material";
 import { Email, Phone, LinkedIn, GitHub } from "@mui/icons-material";
 import Link from "next/link";
@@ -5,6 +6,14 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { PROFILE } from "../constants";
 import styles from "./contact.module.css";
+
+export const metadata: Metadata = {
+	title: "Contact",
+	description: `Get in touch with ${PROFILE.name}, ${PROFILE.title}. Reach out via email, phone, LinkedIn, or GitHub.`,
+	alternates: {
+		canonical: "/contact",
+	},
+};
 
 export default function Contact() {
 	return (
