@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
 	return {
 		id: "/",
 		name: `${PROFILE.name} | ${PROFILE.title}`,
-		short_name: "Cyriel",
+		short_name: PROFILE.name.split(" ")[0],
 		description: SITE_DESCRIPTION,
 		start_url: "/",
 		scope: "/",

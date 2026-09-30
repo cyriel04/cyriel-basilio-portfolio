@@ -27,9 +27,10 @@
 		&:focus-visible {
 			outline: none;
 
+			/* Inset: MUI Card clips overflow, so an outer ring would be hidden. */
 			&::after {
 				outline: 2px solid var(--accent);
-				outline-offset: 2px;
+				outline-offset: -3px;
 			}
 		}
 	}

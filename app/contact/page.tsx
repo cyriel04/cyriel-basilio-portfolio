@@ -8,6 +8,14 @@ import { PROFILE } from "../constants";
 import styles from "./contact.module.css";
 
 const title = "Contact";
+// Page-level openGraph/twitter replace the root ones rather than merging, so
+// the root opengraph-image has to be referenced explicitly.
+const ogImage = {
+	url: "/opengraph-image",
+	width: 1200,
+	height: 630,
+	alt: `${PROFILE.name} | ${PROFILE.title}`,
+};
 const description = `Get in touch with ${PROFILE.name}, ${PROFILE.title}. Reach out via email, phone, LinkedIn, or GitHub.`;
 
 export const metadata: Metadata = {
@@ -23,11 +31,13 @@ export const metadata: Metadata = {
 		title: `${title} | ${PROFILE.name}`,
 		description,
 		locale: "en_US",
+		images: [ogImage],
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: `${title} | ${PROFILE.name}`,
 		description,
+		images: [ogImage],
 	},
 };
 

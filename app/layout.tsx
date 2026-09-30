@@ -9,7 +9,6 @@ import { ThemeProvider } from "@mui/material";
 import {
 	BRAND,
 	EDUCATION,
-	EXPERIENCE,
 	PROFILE,
 	SITE_DESCRIPTION,
 	SITE_URL,
@@ -86,15 +85,18 @@ const jsonLd = {
 			image: `${SITE_URL}/opengraph-image`,
 			email: PROFILE.email,
 			sameAs: [PROFILE.linkedin, PROFILE.github],
-			worksFor: {
-				"@type": "Organization",
-				name: EXPERIENCE[0].company,
-			},
 			alumniOf: {
 				"@type": "CollegeOrUniversity",
 				name: EDUCATION.school,
 			},
-			knowsAbout: [...new Set(Object.values(SKILLS).flat())],
+			// Technical skills only; SKILLS.other holds soft skills.
+			knowsAbout: [
+				...new Set(
+					Object.entries(SKILLS)
+						.filter(([category]) => category !== "other")
+						.flatMap(([, skills]) => skills),
+				),
+			],
 		},
 		{
 			"@type": "WebSite",

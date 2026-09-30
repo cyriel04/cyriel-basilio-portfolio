@@ -28,6 +28,7 @@ const MobileMenu = ({ links }: { links: NavLink[] }) => {
 				anchor="right"
 				open={menuOpen}
 				onClose={() => setMenuOpen(false)}
+				keepMounted
 				classes={{ paper: styles.drawerPaper }}
 			>
 				<IconButton
@@ -37,7 +38,7 @@ const MobileMenu = ({ links }: { links: NavLink[] }) => {
 				>
 					<Close />
 				</IconButton>
-				<nav id={MENU_ID} aria-label="Main">
+				<nav id={MENU_ID} aria-label="Mobile">
 					<ul className={styles.drawerLinks}>
 						{links.map((link) => (
 							<li key={link.href}>
