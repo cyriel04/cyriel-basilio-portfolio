@@ -1,20 +1,15 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://cyriel-basilio.vercel.app";
+import { CONTENT_UPDATED, SITE_URL } from "./constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
-			url: siteUrl,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 1,
+			url: SITE_URL,
+			lastModified: CONTENT_UPDATED,
 		},
 		{
-			url: `${siteUrl}/contact`,
-			lastModified: new Date(),
-			changeFrequency: "yearly",
-			priority: 0.5,
+			url: `${SITE_URL}/contact`,
+			lastModified: CONTENT_UPDATED,
 		},
 	];
 }

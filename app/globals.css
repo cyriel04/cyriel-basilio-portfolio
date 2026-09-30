@@ -1,10 +1,6 @@
 :root {
 	--nav-height: 88px;
-	--max-width: 1100px;
 	--border-radius: 12px;
-	--font-mono:
-		ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-		"Roboto Mono", monospace;
 
 	/* Readable dark theme palette */
 	--bg-primary: #1a1d2e;
@@ -15,6 +11,8 @@
 	--text-muted: #8a9bb8;
 	--accent: #5ba3f5;
 	--accent-hover: #7bb8ff;
+	--accent-soft: rgba(91, 163, 245, 0.12);
+	--accent-border: rgba(91, 163, 245, 0.35);
 	--border: rgba(184, 196, 220, 0.15);
 }
 
@@ -25,15 +23,17 @@
 }
 
 html {
-	scroll-padding-top: 2rem;
-	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 html,
 body {
-	max-width: 100vw;
-	overflow-x: hidden;
-	overflow-y: auto;
 	min-height: 100%;
 	background: var(--bg-primary);
 	color: var(--text-primary);
@@ -47,4 +47,9 @@ a {
 a:hover {
 	color: var(--accent-hover);
 	text-decoration: underline;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
 }

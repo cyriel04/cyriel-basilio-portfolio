@@ -21,12 +21,6 @@ const theme = createTheme({
 	},
 	typography: {
 		fontFamily: '"Inter", "Poppins", system-ui, sans-serif',
-		body1: {
-			color: "#e8ecf4",
-		},
-		body2: {
-			color: "#b8c4dc",
-		},
 	},
 	components: {
 		MuiButton: {

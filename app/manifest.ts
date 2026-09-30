@@ -1,20 +1,33 @@
 import type { MetadataRoute } from "next";
-import { PROFILE } from "./constants";
+import { BRAND, PROFILE, SITE_DESCRIPTION } from "./constants";
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
+		id: "/",
 		name: `${PROFILE.name} | ${PROFILE.title}`,
-		short_name: PROFILE.name,
-		description: `Portfolio of ${PROFILE.name}, ${PROFILE.title}.`,
+		short_name: PROFILE.name.split(" ")[0],
+		description: SITE_DESCRIPTION,
 		start_url: "/",
+		scope: "/",
 		display: "standalone",
-		background_color: "#1a1d2e",
-		theme_color: "#1a1d2e",
+		background_color: BRAND.background,
+		theme_color: BRAND.background,
 		icons: [
 			{
-				src: "/favicon.ico",
-				sizes: "any",
-				type: "image/x-icon",
+				src: "/icon-192.png",
+				sizes: "192x192",
+				type: "image/png",
+			},
+			{
+				src: "/icon-512.png",
+				sizes: "512x512",
+				type: "image/png",
+			},
+			{
+				src: "/icon-maskable-512.png",
+				sizes: "512x512",
+				type: "image/png",
+				purpose: "maskable",
 			},
 		],
 	};

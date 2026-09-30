@@ -1,12 +1,5 @@
-.link {
-	text-decoration: none;
-	color: inherit;
-	display: block;
-}
-
 .contentCard {
-	min-width: 275px;
-	max-width: 380px;
+	position: relative;
 	background-color: var(--bg-card) !important;
 	border: 1px solid var(--border) !important;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
@@ -15,10 +8,31 @@
 		box-shadow 0.2s ease,
 		border-color 0.2s ease;
 
-	p,
-	.title,
-	.description {
+	.title {
 		color: var(--text-primary) !important;
+	}
+
+	/* Stretched link: the whole card is clickable, not just the title. */
+	.link {
+		color: inherit;
+		text-decoration: none;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			border-radius: inherit;
+		}
+
+		&:focus-visible {
+			outline: none;
+
+			/* Inset: MUI Card clips overflow, so an outer ring would be hidden. */
+			&::after {
+				outline: 2px solid var(--accent);
+				outline-offset: -3px;
+			}
+		}
 	}
 
 	.company {
@@ -38,25 +52,22 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.35rem;
+		list-style: none;
 	}
 
 	.tech {
 		font-size: 0.75rem;
 		padding: 0.25rem 0.5rem;
-		background: rgba(91, 163, 245, 0.15);
+		background: var(--accent-soft);
 		border-radius: 4px;
-		color: var(--accent);
+		color: var(--accent-hover);
 	}
 
-	@media (max-width: 767px) {
-		min-width: unset;
-		max-width: 100%;
-	}
-
-	&:hover {
+	&:hover,
+	&:focus-within {
 		transform: translateY(-4px);
 		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3) !important;
-		border-color: rgba(91, 163, 245, 0.3) !important;
+		border-color: var(--accent-border) !important;
 	}
 
 	&.noLink {

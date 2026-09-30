@@ -1,6 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import cx from "classnames";
-import Link from "next/link";
 
 import styles from "./ContentCard.module.scss";
 
@@ -20,48 +19,42 @@ const ContentCard = ({
 	className?: string;
 }) => (
 	<Card
+		component="article"
 		className={cx(styles.contentCard, className, !project.url && styles.noLink)}
 	>
 		<CardContent>
-			{project.url ? (
-				<Link
-					href={project.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					className={styles.link}
-				>
-					<Typography
-						gutterBottom
-						variant="h6"
-						component="div"
-						className={styles.title}
+			<Typography
+				gutterBottom
+				variant="h6"
+				component="h3"
+				className={styles.title}
+			>
+				{project.url ? (
+					<a
+						href={project.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						className={styles.link}
 					>
 						{project.title}
-					</Typography>
-				</Link>
-			) : (
-				<Typography
-					gutterBottom
-					variant="h6"
-					component="div"
-					className={styles.title}
-				>
-					{project.title}
-				</Typography>
-			)}
-			<Typography variant="caption" className={styles.company}>
+					</a>
+				) : (
+					project.title
+				)}
+			</Typography>
+			<Typography variant="caption" component="p" className={styles.company}>
 				{project.company}
 			</Typography>
 			<Typography variant="body2" className={styles.description}>
 				{project.description}
 			</Typography>
-			<div className={styles.projectStack}>
+			<ul className={styles.projectStack} aria-label="Tech stack">
 				{project.stack.map((tech) => (
-					<span key={tech} className={styles.tech}>
+					<li key={tech} className={styles.tech}>
 						{tech}
-					</span>
+					</li>
 				))}
-			</div>
+			</ul>
 		</CardContent>
 	</Card>
 );
