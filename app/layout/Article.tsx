@@ -4,10 +4,16 @@ import styles from "./Article.module.scss";
 
 const Article = () => {
 	return (
-		<div className={styles.article}>
-			{PROJECTS.map((project, index) => (
+		// Focusable so keyboard users can scroll the carousel with arrow keys.
+		<div
+			className={styles.article}
+			role="region"
+			aria-label="Projects"
+			tabIndex={0}
+		>
+			{PROJECTS.map((project) => (
 				<ContentCard
-					key={index}
+					key={project.title}
 					project={project}
 					className={styles.articleCard}
 				/>

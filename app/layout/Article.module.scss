@@ -4,9 +4,15 @@
 	flex-wrap: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
-	padding-bottom: 0.5rem;
+	padding: 0.5rem 0.25rem;
 	scroll-behavior: smooth;
 	-webkit-overflow-scrolling: touch;
+
+	&:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 4px;
+		border-radius: var(--border-radius);
+	}
 
 	&::-webkit-scrollbar {
 		height: 8px;

@@ -7,19 +7,11 @@ import Footer from "./components/Footer";
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import { PROFILE, SUMMARY, SKILLS, EXPERIENCE, EDUCATION } from "./constants";
 
-export default function Home() {
-	const allSkills = [
-		...SKILLS.frontend,
-		...SKILLS.styling,
-		...SKILLS.testing,
-		...SKILLS.state,
-		...SKILLS.tools,
-		...SKILLS.backend,
-		...SKILLS.ai,
-	].filter((s, i, arr) => arr.indexOf(s) === i);
+const allSkills = [...new Set(Object.values(SKILLS).flat())];
 
+export default function Home() {
 	return (
-		<div>
+		<>
 			<Navigation />
 			<main className={styles.main}>
 				<section className={styles.hero}>
@@ -64,6 +56,7 @@ export default function Home() {
 							href={PROFILE.linkedin}
 							rel="noopener noreferrer"
 							aria-label="LinkedIn"
+							className={styles.iconLink}
 						>
 							<LinkedIn fontSize="large" />
 						</Button>
@@ -73,103 +66,99 @@ export default function Home() {
 							href={PROFILE.github}
 							rel="noopener noreferrer"
 							aria-label="GitHub"
+							className={styles.iconLink}
 						>
 							<GitHub fontSize="large" />
 						</Button>
 					</div>
 				</section>
 
-				<section className={styles.section}>
-					<span
-						id="experience"
-						className={styles.scrollAnchor}
-						aria-hidden="true"
-					/>
+				<section id="experience" className={styles.section}>
 					<Typography
 						variant="h5"
 						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
-						EXPERIENCE
+						Experience
 					</Typography>
-					<div className={styles.experienceList}>
-						{EXPERIENCE.map((job, index) => (
-							<div key={index} className={styles.experienceItem}>
-								<Typography variant="subtitle1" fontWeight={600}>
+					<ul className={styles.experienceList}>
+						{EXPERIENCE.map((job) => (
+							<li
+								key={`${job.company}-${job.period}`}
+								className={styles.experienceItem}
+							>
+								<Typography
+									variant="subtitle1"
+									component="h3"
+									fontWeight={600}
+									className={styles.role}
+								>
 									{job.role} · {job.company}
 								</Typography>
-								<Typography variant="body2" color="text.secondary">
+								<Typography variant="body2" className={styles.period}>
 									{job.period} ({job.type})
 								</Typography>
-							</div>
+							</li>
 						))}
-					</div>
+					</ul>
 				</section>
 
-				<section className={styles.section}>
-					<span
-						id="projects"
-						className={styles.scrollAnchor}
-						aria-hidden="true"
-					/>
+				<section id="projects" className={styles.section}>
 					<Typography
 						variant="h5"
 						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
-						PROJECTS
+						Projects
 					</Typography>
 					<Article />
 				</section>
 
-				<section className={styles.section}>
-					<span
-						id="skills"
-						className={styles.scrollAnchor}
-						aria-hidden="true"
-					/>
+				<section id="skills" className={styles.section}>
 					<Typography
 						variant="h5"
 						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
-						SKILLS
+						Skills
 					</Typography>
-					<div className={styles.skills}>
-						{allSkills.map((skill, index) => (
-							<span key={index} className={styles.skillTag}>
+					<ul className={styles.skills}>
+						{allSkills.map((skill) => (
+							<li key={skill} className={styles.skillTag}>
 								{skill}
-							</span>
+							</li>
 						))}
-					</div>
+					</ul>
 				</section>
 
-				<section className={styles.section}>
-					<span
-						id="education"
-						className={styles.scrollAnchor}
-						aria-hidden="true"
-					/>
+				<section id="education" className={styles.section}>
 					<Typography
 						variant="h5"
 						component="h2"
 						fontWeight={600}
 						className={styles.sectionTitle}
 					>
-						EDUCATION
+						Education
 					</Typography>
 					<div className={styles.education}>
-						<Typography variant="subtitle1" fontWeight={600}>
+						<Typography
+							variant="subtitle1"
+							component="h3"
+							fontWeight={600}
+							className={styles.school}
+						>
 							{EDUCATION.school}
 						</Typography>
-						<Typography variant="body2">{EDUCATION.degree}</Typography>
+						<Typography variant="body2" className={styles.degree}>
+							{EDUCATION.degree}
+						</Typography>
 					</div>
 				</section>
 			</main>
 			<Footer />
-		</div>
+		</>
 	);
 }
