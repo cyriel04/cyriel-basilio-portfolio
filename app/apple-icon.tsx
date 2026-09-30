@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
+import { BRAND } from "./constants";
 
-export const runtime = "edge";
 export const size = {
 	width: 180,
 	height: 180,
@@ -16,8 +16,8 @@ export default function AppleIcon() {
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "center",
-				background: "#1a1d2e",
-				color: "#5ba3f5",
+				background: BRAND.background,
+				color: BRAND.accent,
 				fontSize: 96,
 				fontWeight: 700,
 				fontFamily: "sans-serif",

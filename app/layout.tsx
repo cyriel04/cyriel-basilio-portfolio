@@ -1,31 +1,38 @@
 import "./globals.css";
+import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import theme from "./theme";
 import { ThemeProvider } from "@mui/material";
-import { PROFILE } from "./constants";
+import {
+	BRAND,
+	EDUCATION,
+	EXPERIENCE,
+	PROFILE,
+	SITE_DESCRIPTION,
+	SITE_URL,
+	SKILLS,
+} from "./constants";
 
 const inter = Inter({
 	subsets: ["latin"],
 	display: "swap",
 });
 
-const siteUrl = "https://cyriel-basilio.vercel.app";
 const title = `${PROFILE.name} | ${PROFILE.title}`;
-const description =
-	"Frontend developer with 7+ years specializing in React and TypeScript. Portfolio featuring experience, projects, and skills.";
 
 export const metadata: Metadata = {
-	metadataBase: new URL(siteUrl),
+	metadataBase: new URL(SITE_URL),
 	title: {
 		default: title,
 		template: `%s | ${PROFILE.name}`,
 	},
-	description,
+	description: SITE_DESCRIPTION,
 	keywords: [
 		"Cyriel Basilio",
+		"Cyriel Neil Basilio",
 		"React Developer",
 		"Frontend Developer",
 		"React",
@@ -34,12 +41,8 @@ export const metadata: Metadata = {
 		"JavaScript",
 		"Web Developer Portfolio",
 		"Frontend Developer Portfolio",
-		"Fullstack Developer",
-		"Cyriel Neil Basilio",
-		"Cyriel",
-		"Basilio",
 	],
-	authors: [{ name: PROFILE.name, url: siteUrl }],
+	authors: [{ name: PROFILE.name, url: SITE_URL }],
 	creator: PROFILE.name,
 	alternates: {
 		canonical: "/",
@@ -49,13 +52,13 @@ export const metadata: Metadata = {
 		url: "/",
 		siteName: `${PROFILE.name} Portfolio`,
 		title,
-		description,
+		description: SITE_DESCRIPTION,
 		locale: "en_US",
 	},
 	twitter: {
 		card: "summary_large_image",
 		title,
-		description,
+		description: SITE_DESCRIPTION,
 	},
 	robots: {
 		index: true,
@@ -67,30 +70,53 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-	themeColor: "#1a1d2e",
+	themeColor: BRAND.background,
 };
 
-const personJsonLd = {
+const jsonLd = {
 	"@context": "https://schema.org",
-	"@type": "Person",
-	name: PROFILE.name,
-	jobTitle: PROFILE.title,
-	url: siteUrl,
-	email: `mailto:${PROFILE.email}`,
-	sameAs: [PROFILE.linkedin, PROFILE.github],
+	"@graph": [
+		{
+			"@type": "Person",
+			"@id": `${SITE_URL}/#person`,
+			name: PROFILE.name,
+			jobTitle: PROFILE.title,
+			description: SITE_DESCRIPTION,
+			url: SITE_URL,
+			image: `${SITE_URL}/opengraph-image`,
+			email: PROFILE.email,
+			sameAs: [PROFILE.linkedin, PROFILE.github],
+			worksFor: {
+				"@type": "Organization",
+				name: EXPERIENCE[0].company,
+			},
+			alumniOf: {
+				"@type": "CollegeOrUniversity",
+				name: EDUCATION.school,
+			},
+			knowsAbout: [...new Set(Object.values(SKILLS).flat())],
+		},
+		{
+			"@type": "WebSite",
+			"@id": `${SITE_URL}/#website`,
+			url: SITE_URL,
+			name: `${PROFILE.name} Portfolio`,
+			description: SITE_DESCRIPTION,
+			author: { "@id": `${SITE_URL}/#person` },
+			inLanguage: "en",
+		},
+	],
 };
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
 				<script
 					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+					}}
 				/>
 				<AppRouterCacheProvider>
 					<ThemeProvider theme={theme}>{children}</ThemeProvider>

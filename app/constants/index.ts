@@ -1,3 +1,18 @@
+import type { Project } from "../components/ContentCard";
+
+export const SITE_URL = "https://cyriel-basilio.vercel.app";
+
+// Bump when the site content changes; used for sitemap lastModified.
+export const CONTENT_UPDATED = new Date("2026-09-30");
+
+// Brand colours for places that can't read CSS variables (manifest, viewport,
+// next/og images). Keep in sync with app/globals.css and app/theme.ts.
+export const BRAND = {
+	background: "#1a1d2e",
+	accent: "#5ba3f5",
+	text: "#e8ecf4",
+};
+
 export const PROFILE = {
 	name: "Cyriel Basilio",
 	title: "React JS Developer",
@@ -5,19 +20,23 @@ export const PROFILE = {
 	email: "cyrielneil@gmail.com",
 	linkedin: "https://linkedin.com/in/cyriel-basilio/",
 	github: "https://github.com/cyriel04",
+	repoUrl: "https://github.com/cyriel04/cyriel-basilio-portfolio",
 	resumeUrl:
 		"https://drive.google.com/file/d/1YbxidyF1E-JlSyvBb7CEaqaK9iPDuEIS/view?usp=drive_link",
 };
 
+export const SITE_DESCRIPTION =
+	"Frontend developer with 8+ years specializing in React and TypeScript. Portfolio featuring experience, projects, and skills.";
+
 export const SUMMARY =
-	"Frontend developer with 7+ years specializing in React and TypeScript. Spent 4+ years at ProSource across three phases: building the Accelo design system (2022–2023), core platform feature development on Accelo V4 (2023–2026), and full-stack feature work on Forecast — an AI-powered PSA tool acquired by Accelo in 2025. Experienced in end-to-end development (MySQL, GraphQL, React), design system ownership, code reviews, and cross-timezone collaboration with AU and UK teams.";
+	"Frontend developer with 8+ years specializing in React and TypeScript. Spent 4+ years at ProSource across three phases: building the Accelo design system (2022–2023), core platform feature development on Accelo V4 (2023–2026), and full-stack feature work on Forecast — an AI-powered PSA tool acquired by Accelo in 2025. Experienced in end-to-end development (MySQL, GraphQL, React), design system ownership, code reviews, and cross-timezone collaboration with AU and UK teams.";
 
 export const SKILLS = {
 	frontend: ["React", "TypeScript", "JavaScript", "Next.js", "HTML5", "CSS3"],
 	styling: ["SCSS", "Styled-components", "Ant Design", "Material UI"],
 	testing: ["Jest", "Cypress"],
 	state: ["Redux (Thunk)", "Zustand"],
-	tools: ["Webpack 5", "Storybook", "Stripe", "MixPanel"],
+	tools: ["Webpack 5", "Storybook", "Stripe", "Mixpanel"],
 	design: ["Figma", "Sketch"],
 	backend: ["GraphQL (Apollo)", "Node.js", "MySQL", "PHP", "Java Spring"],
 	ai: ["Cursor", "Claude"],
@@ -28,41 +47,42 @@ export const EXPERIENCE = [
 	{
 		company: "ProSource",
 		role: "Frontend Developer",
-		period: "Jan 2022 - June 2026",
+		period: "Jan 2022 – Jun 2026",
 		type: "Full-time",
 	},
 	{
 		company: "Contact Creatives",
 		role: "React Developer",
-		period: "May 2024 - May 2025",
-		type: "Part-time",
-	},
-	{
-		company: "MobiX Systems",
-		role: "Frontend Developer",
-		period: "Aug 2021 - Dec 2021",
+		period: "May 2024 – May 2025",
 		type: "Part-time",
 	},
 	{
 		company: "WeSupport Inc.",
 		role: "React Developer",
-		period: "June 2021 - Jan 2022",
+		period: "Jun 2021 – Jan 2022",
 		type: "Full-time",
+	},
+	{
+		company: "MobiX Systems",
+		role: "Frontend Developer",
+		period: "Aug 2021 – Dec 2021",
+		type: "Part-time",
 	},
 	{
 		company: "Cartrack Philippines",
 		role: "Frontend Developer",
-		period: "Dec 2020 - June 2021",
+		period: "Dec 2020 – Jun 2021",
 		type: "Full-time",
 	},
 	{
-		company: "WhiteCloak Tech.",
+		company: "WhiteCloak Technologies",
 		role: "Software Engineer",
-		period: "April 2018 - Dec 2020",
+		period: "Apr 2018 – Dec 2020",
 		type: "Full-time",
 	},
 ];
-export const PROJECTS = [
+
+export const PROJECTS: Project[] = [
 	{
 		title: "Forecast – AI-Powered Project & Resource Management",
 		url: "https://forecast.app/",
@@ -116,11 +136,11 @@ export const PROJECTS = [
 			"JavaScript",
 			"Cypress",
 			"Stripe",
-			"MixPanel",
+			"Mixpanel",
 			"Node.js",
 		],
 		description:
-			"Built and shipped the Scouty web application alongside a UK-based team, working independently at startup pace. Integrated Stripe payment flows end-to-end and implemented Cypress E2E test suites. Integrated MixPanel analytics to track key user events and support product decisions.",
+			"Built and shipped the Scouty web application alongside a UK-based team, working independently at startup pace. Integrated Stripe payment flows end-to-end and implemented Cypress E2E test suites. Integrated Mixpanel analytics to track key user events and support product decisions.",
 	},
 	{
 		title: "Squidpay Web Application",
@@ -172,6 +192,6 @@ export const PROJECTS = [
 ];
 
 export const EDUCATION = {
-	school: "Polytechnic University of the Philippines - Sta. Mesa Manila",
-	degree: "Bachelor of Science in Information and Technology",
+	school: "Polytechnic University of the Philippines - Sta. Mesa, Manila",
+	degree: "Bachelor of Science in Information Technology",
 };

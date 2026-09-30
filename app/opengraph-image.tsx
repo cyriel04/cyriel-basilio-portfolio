@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
-import { PROFILE } from "./constants";
+import { BRAND, PROFILE } from "./constants";
 
-export const runtime = "edge";
 export const alt = `${PROFILE.name} | ${PROFILE.title}`;
 export const size = {
 	width: 1200,
@@ -19,8 +18,8 @@ export default async function OpengraphImage() {
 				flexDirection: "column",
 				alignItems: "center",
 				justifyContent: "center",
-				background: "#1a1d2e",
-				color: "#e8ecf4",
+				background: BRAND.background,
+				color: BRAND.text,
 				fontFamily: "sans-serif",
 			}}
 		>
@@ -31,7 +30,7 @@ export default async function OpengraphImage() {
 				style={{
 					fontSize: 36,
 					fontWeight: 500,
-					color: "#5ba3f5",
+					color: BRAND.accent,
 					marginTop: 24,
 					display: "flex",
 				}}

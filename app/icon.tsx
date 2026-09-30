@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
+import { BRAND } from "./constants";
 
-export const runtime = "edge";
 export const size = {
 	width: 32,
 	height: 32,
@@ -16,8 +16,8 @@ export default function Icon() {
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "center",
-				background: "#1a1d2e",
-				color: "#5ba3f5",
+				background: BRAND.background,
+				color: BRAND.accent,
 				fontSize: 20,
 				fontWeight: 700,
 				fontFamily: "sans-serif",
