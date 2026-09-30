@@ -80,4 +80,4 @@ The site is data-driven. To change what the site says (bio, skills, jobs, projec
 
 ## Deployment
 
-The site deploys to Vercel from the `main` branch. The canonical URL (`https://cyriel-basilio.vercel.app`) is hardcoded in `app/layout.tsx`, `app/robots.ts` and `app/sitemap.ts`. If the domain changes, update all three.
+The site deploys to Vercel only when changes land on `main`, such as when a pull request is merged. Preview deployments for other branches and pull requests are turned off in [`vercel.json`](vercel.json) via `git.deploymentEnabled`. The canonical URL (`https://cyriel-basilio.vercel.app`) is hardcoded in `app/layout.tsx`, `app/robots.ts` and `app/sitemap.ts`. If the domain changes, update all three.
