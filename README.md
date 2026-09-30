@@ -67,7 +67,8 @@ The site is data-driven. To change what the site says (bio, skills, jobs, projec
 ## Code quality
 
 - **Formatting:** Prettier with tabs and double quotes (`.prettierrc.json`).
-- **Pre-commit hook:** Husky runs `npm run format:check` before each commit. Run `npm run format` to fix failures.
+- **Pre-commit hook:** Husky runs `lint-staged`, which applies `eslint --fix` and Prettier to staged files.
+- **Pre-push hook:** runs `format:check`, `lint`, `typecheck` and `build` (about 10 seconds). Because Vercel only deploys `main` and there are no preview deployments, this is the last check before code leaves your machine. Skip it in an emergency with `git push --no-verify`.
 - **CI:** [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push and pull request to `main`:
 
   `format:check` → `lint` → `typecheck` → `build` → `npm audit` (non-blocking)
@@ -80,4 +81,4 @@ The site is data-driven. To change what the site says (bio, skills, jobs, projec
 
 ## Deployment
 
-The site deploys to Vercel from the `main` branch. The canonical URL (`https://cyriel-basilio.vercel.app`) is hardcoded in `app/layout.tsx`, `app/robots.ts` and `app/sitemap.ts`. If the domain changes, update all three.
+The site deploys to Vercel only when changes land on `main`, such as when a pull request is merged. Preview deployments for other branches and pull requests are turned off in [`vercel.json`](vercel.json) via `git.deploymentEnabled`. The canonical URL (`https://cyriel-basilio.vercel.app`) is hardcoded in `app/layout.tsx`, `app/robots.ts` and `app/sitemap.ts`. If the domain changes, update all three.
