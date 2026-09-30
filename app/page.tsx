@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
 import Navigation from "./components/Navigation";
 
-import { Button, Typography } from "@mui/material";
+import { Button, Tooltip, Typography } from "@mui/material";
 import Article from "./layout/Article";
 import Footer from "./components/Footer";
-import { GitHub, LinkedIn } from "@mui/icons-material";
+import { Description, GitHub, LinkedIn } from "@mui/icons-material";
 import { PROFILE, SUMMARY, SKILLS, EXPERIENCE, EDUCATION } from "./constants";
 
 const allSkills = [...new Set(Object.values(SKILLS).flat())];
@@ -41,35 +41,42 @@ export default function Home() {
 					</Typography>
 
 					<div className={styles.aboutButtons}>
-						<Button
-							variant="outlined"
-							target="_blank"
-							href={PROFILE.resumeUrl}
-							rel="noopener noreferrer"
-							className={styles.resumeBtn}
-						>
-							Resume
-						</Button>
-						<Button
-							variant="text"
-							target="_blank"
-							href={PROFILE.linkedin}
-							rel="noopener noreferrer"
-							aria-label="LinkedIn"
-							className={styles.iconLink}
-						>
-							<LinkedIn fontSize="large" />
-						</Button>
-						<Button
-							variant="text"
-							target="_blank"
-							href={PROFILE.github}
-							rel="noopener noreferrer"
-							aria-label="GitHub"
-							className={styles.iconLink}
-						>
-							<GitHub fontSize="large" />
-						</Button>
+						<Tooltip title="Resume">
+							<Button
+								variant="text"
+								target="_blank"
+								href={PROFILE.resumeUrl}
+								rel="noopener noreferrer"
+								aria-label="Resume"
+								className={styles.iconLink}
+							>
+								<Description fontSize="large" />
+							</Button>
+						</Tooltip>
+						<Tooltip title="LinkedIn">
+							<Button
+								variant="text"
+								target="_blank"
+								href={PROFILE.linkedin}
+								rel="noopener noreferrer"
+								aria-label="LinkedIn"
+								className={styles.iconLink}
+							>
+								<LinkedIn fontSize="large" />
+							</Button>
+						</Tooltip>
+						<Tooltip title="GitHub">
+							<Button
+								variant="text"
+								target="_blank"
+								href={PROFILE.github}
+								rel="noopener noreferrer"
+								aria-label="GitHub"
+								className={styles.iconLink}
+							>
+								<GitHub fontSize="large" />
+							</Button>
+						</Tooltip>
 					</div>
 				</section>
 
