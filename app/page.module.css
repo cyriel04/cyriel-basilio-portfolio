@@ -40,14 +40,9 @@
 	color: var(--text-primary) !important;
 }
 
-.resumeBtn {
-	border-color: var(--accent) !important;
-	color: var(--accent) !important;
-}
-
-.resumeBtn:hover {
+.iconLink:hover,
+.iconLink:focus-visible {
 	background: var(--accent-soft) !important;
-	border-color: var(--accent-hover) !important;
 	color: var(--accent-hover) !important;
 }
 
