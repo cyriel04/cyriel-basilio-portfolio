@@ -5,6 +5,7 @@ import MobileMenu from "./MobileMenu";
 export const NAV_LINKS = [
 	{ href: "/#experience", label: "experience" },
 	{ href: "/#projects", label: "projects" },
+	{ href: "/#personal-works", label: "personal works" },
 	{ href: "/#skills", label: "skills" },
 	{ href: "/#education", label: "education" },
 	{ href: "/contact", label: "contact" },

@@ -1,13 +1,27 @@
 import styles from "./page.module.css";
 import Navigation from "./components/Navigation";
 
-import { Button, Tooltip, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Article from "./layout/Article";
 import Footer from "./components/Footer";
 import { Description, GitHub, LinkedIn } from "@mui/icons-material";
-import { PROFILE, SUMMARY, SKILLS, EXPERIENCE, EDUCATION } from "./constants";
+import {
+	PROFILE,
+	SUMMARY,
+	SKILLS,
+	EXPERIENCE,
+	PROJECTS,
+	PERSONAL_PROJECTS,
+	EDUCATION,
+} from "./constants";
 
 const allSkills = [...new Set(Object.values(SKILLS).flat())];
+
+const SOCIAL_LINKS = [
+	{ label: "Resume", href: PROFILE.resumeUrl, Icon: Description },
+	{ label: "LinkedIn", href: PROFILE.linkedin, Icon: LinkedIn },
+	{ label: "GitHub", href: PROFILE.github, Icon: GitHub },
+];
 
 export default function Home() {
 	return (
@@ -40,44 +54,22 @@ export default function Home() {
 						{SUMMARY}
 					</Typography>
 
-					<div className={styles.aboutButtons}>
-						<Tooltip title="Resume">
-							<Button
-								variant="text"
-								target="_blank"
-								href={PROFILE.resumeUrl}
-								rel="noopener noreferrer"
-								aria-label="Resume"
-								className={styles.iconLink}
-							>
-								<Description fontSize="large" />
-							</Button>
-						</Tooltip>
-						<Tooltip title="LinkedIn">
-							<Button
-								variant="text"
-								target="_blank"
-								href={PROFILE.linkedin}
-								rel="noopener noreferrer"
-								aria-label="LinkedIn"
-								className={styles.iconLink}
-							>
-								<LinkedIn fontSize="large" />
-							</Button>
-						</Tooltip>
-						<Tooltip title="GitHub">
-							<Button
-								variant="text"
-								target="_blank"
-								href={PROFILE.github}
-								rel="noopener noreferrer"
-								aria-label="GitHub"
-								className={styles.iconLink}
-							>
-								<GitHub fontSize="large" />
-							</Button>
-						</Tooltip>
-					</div>
+					<ul className={styles.aboutButtons}>
+						{SOCIAL_LINKS.map(({ label, href, Icon }) => (
+							<li key={label}>
+								<a
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={label}
+									data-tooltip={label}
+									className={styles.iconLink}
+								>
+									<Icon fontSize="large" />
+								</a>
+							</li>
+						))}
+					</ul>
 				</section>
 
 				<section id="experience" className={styles.section}>
@@ -116,11 +108,28 @@ export default function Home() {
 						variant="h5"
 						component="h2"
 						fontWeight={600}
+						id="projects-heading"
 						className={styles.sectionTitle}
 					>
 						Projects
 					</Typography>
-					<Article />
+					<Article projects={PROJECTS} labelledBy="projects-heading" />
+				</section>
+
+				<section id="personal-works" className={styles.section}>
+					<Typography
+						variant="h5"
+						component="h2"
+						fontWeight={600}
+						id="personal-works-heading"
+						className={styles.sectionTitle}
+					>
+						Personal Works
+					</Typography>
+					<Article
+						projects={PERSONAL_PROJECTS}
+						labelledBy="personal-works-heading"
+					/>
 				</section>
 
 				<section id="skills" className={styles.section}>

@@ -19,7 +19,7 @@ Node version is pinned via `.nvmrc` (24).
 
 ## Architecture
 
-This is a single-page Next.js 15 (App Router) portfolio site — effectively one route (`app/page.tsx`) composed of section components, no routing complexity beyond `app/contact/page.tsx`.
+This is a single-page Next.js 16 (App Router) portfolio site — effectively one route (`app/page.tsx`) composed of section components, no routing complexity beyond `app/contact/page.tsx`.
 
 **Content is data-driven.** All resume/portfolio content (profile info, summary, skills, experience, projects, education) lives in `app/constants/index.ts` as plain exported objects/arrays (`PROFILE`, `SUMMARY`, `SKILLS`, `EXPERIENCE`, `PROJECTS`, `EDUCATION`). Page components map over these constants to render sections — to update site content, edit the constants file, not the components. The `Project` type is defined in `app/components/ContentCard.tsx` and consumed by `app/constants/index.ts` and `app/layout/Article.tsx`.
 
@@ -38,3 +38,8 @@ This is a single-page Next.js 15 (App Router) portfolio site — effectively one
 **Formatting:** Prettier config uses tabs and double quotes (`.prettierrc.json`) — `format:check` is enforced in CI, run `npm run format` before committing.
 
 Deployed to Vercel.
+
+## Git
+
+- Commits and PRs credit only the user: no `Co-Authored-By: Claude` trailer and no "Generated with Claude Code" footer.
+- Do feature work on a branch, not directly on `main`.

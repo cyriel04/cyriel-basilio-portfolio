@@ -20,7 +20,7 @@ const theme = createTheme({
 		},
 	},
 	typography: {
-		fontFamily: '"Inter", "Poppins", system-ui, sans-serif',
+		fontFamily: "var(--font-inter), system-ui, sans-serif",
 	},
 	components: {
 		MuiButton: {

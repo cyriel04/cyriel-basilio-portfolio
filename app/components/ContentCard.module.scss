@@ -1,6 +1,19 @@
+/*
+ * Plain-element card. Box, overlay and type scale replicate the MUI Card +
+ * CardContent + Typography (h6 / caption / body2) it replaced.
+ */
 .contentCard {
 	position: relative;
+	overflow: hidden;
+	padding: 16px 16px 24px;
+	border-radius: 4px;
+	color: var(--text-primary);
 	background-color: var(--bg-card) !important;
+	/* MUI dark-mode Paper elevation-1 overlay */
+	background-image: linear-gradient(
+		rgba(255, 255, 255, 0.051),
+		rgba(255, 255, 255, 0.051)
+	);
 	border: 1px solid var(--border) !important;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
 	transition:
@@ -9,6 +22,10 @@
 		border-color 0.2s ease;
 
 	.title {
+		margin-bottom: 0.35em;
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 1.6;
 		color: var(--text-primary) !important;
 	}
 
@@ -27,7 +44,7 @@
 		&:focus-visible {
 			outline: none;
 
-			/* Inset: MUI Card clips overflow, so an outer ring would be hidden. */
+			/* Inset: the card clips overflow, so an outer ring would be hidden. */
 			&::after {
 				outline: 2px solid var(--accent);
 				outline-offset: -3px;
@@ -39,6 +56,8 @@
 		color: var(--accent) !important;
 		display: block;
 		margin-bottom: 0.5rem;
+		font-size: 0.75rem;
+		line-height: 1.66;
 	}
 
 	.description {

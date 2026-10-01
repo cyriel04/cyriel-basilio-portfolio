@@ -8,7 +8,7 @@ Personal portfolio and resume site for Cyriel Basilio, Frontend / React develope
 
 ## Tech stack
 
-- [Next.js 15](https://nextjs.org/) (App Router) + [React 19](https://react.dev/)
+- [Next.js 16](https://nextjs.org/) (App Router) + [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Material UI 7](https://mui.com/) (dark theme, Emotion via `@mui/material-nextjs`)
 - CSS / SCSS Modules composed with [`classnames`](https://github.com/JedWatson/classnames)

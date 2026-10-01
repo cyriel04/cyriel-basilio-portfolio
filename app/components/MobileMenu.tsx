@@ -30,6 +30,13 @@ const MobileMenu = ({ links }: { links: NavLink[] }) => {
 				onClose={() => setMenuOpen(false)}
 				keepMounted
 				classes={{ paper: styles.drawerPaper }}
+				slotProps={{
+					paper: {
+						role: "dialog",
+						"aria-modal": true,
+						"aria-label": "Site menu",
+					},
+				}}
 			>
 				<IconButton
 					className={styles.closeButton}

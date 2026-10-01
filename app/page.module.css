@@ -34,16 +34,66 @@
 .aboutButtons {
 	gap: 0.5rem;
 	margin-top: 0.5rem;
+	list-style: none;
 }
 
+/* Box matches the MUI text Button these replaced (64 x 47 with a large icon). */
 .iconLink {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 64px;
+	padding: 6px 8px;
+	border-radius: 4px;
 	color: var(--text-primary) !important;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .iconLink:hover,
 .iconLink:focus-visible {
 	background: var(--accent-soft) !important;
 	color: var(--accent-hover) !important;
+	text-decoration: none;
+}
+
+/* CSS-only tooltip, styled after MUI's dark Tooltip (bottom placement). */
+.iconLink::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	top: calc(100% + 14px);
+	left: 50%;
+	z-index: 1;
+	padding: 4px 8px;
+	border-radius: 4px;
+	background: var(--tooltip-bg);
+	color: var(--tooltip-text);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	line-height: normal;
+	white-space: nowrap;
+	pointer-events: none;
+	opacity: 0;
+	transform: translateX(-50%) scale(0.75);
+	transform-origin: center top;
+	transition:
+		opacity 150ms cubic-bezier(0.4, 0, 0.2, 1),
+		transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iconLink:focus-visible::after {
+	opacity: 1;
+	transform: translateX(-50%) scale(1);
+	transition-delay: 100ms;
+}
+
+/* Hover only on real pointers so the tooltip doesn't stick after a tap. */
+@media (hover: hover) {
+	.iconLink:hover::after {
+		opacity: 1;
+		transform: translateX(-50%) scale(1);
+		transition-delay: 100ms;
+	}
 }
 
 .nameText {
@@ -124,6 +174,13 @@
 
 .degree {
 	color: var(--text-secondary) !important;
+}
+
+@media (max-width: 1200px) {
+	.main {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
 }
 
 /* Mobile */

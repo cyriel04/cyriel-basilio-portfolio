@@ -1,17 +1,22 @@
-import ContentCard from "../components/ContentCard";
-import { PROJECTS } from "../constants";
+import ContentCard, { type Project } from "../components/ContentCard";
 import styles from "./Article.module.scss";
 
-const Article = () => {
+type ArticleProps = {
+	projects: Project[];
+	/** id of the heading that names this carousel */
+	labelledBy: string;
+};
+
+const Article = ({ projects, labelledBy }: ArticleProps) => {
 	return (
 		// Focusable so keyboard users can scroll the carousel with arrow keys.
 		<div
 			className={styles.article}
 			role="region"
-			aria-label="Projects"
+			aria-labelledby={labelledBy}
 			tabIndex={0}
 		>
-			{PROJECTS.map((project) => (
+			{projects.map((project) => (
 				<ContentCard
 					key={project.title}
 					project={project}

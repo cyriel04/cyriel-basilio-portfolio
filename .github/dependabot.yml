@@ -1,0 +1,37 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    # A dependency joins the first group it matches, so the lockstep groups
+    # come before the catch-all. Majors outside those groups get their own PR.
+    groups:
+      # eslint-config-next must match the next version (all update types).
+      next:
+        patterns:
+          - "next"
+          - "eslint-config-next"
+      # MUI packages release together (all update types).
+      mui:
+        patterns:
+          - "@mui/*"
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"

@@ -2,8 +2,9 @@ import type { Project } from "../components/ContentCard";
 
 export const SITE_URL = "https://cyriel-basilio.vercel.app";
 
-// Bump when the site content changes; used for sitemap lastModified.
-export const CONTENT_UPDATED = new Date("2026-09-30");
+// Bump when the site content changes; used for sitemap lastModified and the
+// footer copyright year.
+export const CONTENT_UPDATED = new Date("2026-10-01");
 
 // Brand colours for places that can't read CSS variables (manifest, viewport,
 // next/og images). Keep in sync with app/globals.css and app/theme.ts.
@@ -110,22 +111,6 @@ export const PROJECTS: Project[] = [
 			"Built and shipped features for Accelo V4, a PSA platform used globally by agencies and consulting firms to manage projects, billing, timesheets, and client work. Leveraged and extended the internal design system, conducted code reviews, and mentored peers. Collaborated daily with AU/PH developers across time zones; optimized for speed and scalability and maintained Jest unit test coverage.",
 	},
 	{
-		title: "Accelo Design System",
-		url: null,
-		company: "ProSource (Internal)",
-		stack: [
-			"React",
-			"Styled-components",
-			"TypeScript",
-			"Storybook",
-			"Jest",
-			"MUI",
-			"Figma",
-		],
-		description:
-			"Designed, built, and maintained the internal component library used across the Accelo platform — documented in Storybook, built on MUI. Worked closely with UI/UX designers to translate mockups into reusable, accessible components. Managed library deployment and code reviews; collaborated with AU/PH teams on cross-platform and accessibility requirements.",
-	},
-	{
 		title: "Scouty Website",
 		url: "https://www.scouty.com/",
 		company: "Contact Creatives",
@@ -143,12 +128,20 @@ export const PROJECTS: Project[] = [
 			"Built and shipped the Scouty web application alongside a UK-based team, working independently at startup pace. Integrated Stripe payment flows end-to-end and implemented Cypress E2E test suites. Integrated Mixpanel analytics to track key user events and support product decisions.",
 	},
 	{
-		title: "Squidpay Web Application",
-		url: "https://my.squid.ph/",
-		company: "MobiX Systems",
-		stack: ["React", "Redux", "Styled-components", "TypeScript"],
+		title: "Accelo Design System",
+		url: null,
+		company: "ProSource (Internal)",
+		stack: [
+			"React",
+			"Styled-components",
+			"TypeScript",
+			"Storybook",
+			"Jest",
+			"MUI",
+			"Figma",
+		],
 		description:
-			"Built and maintained web app features including Add Money flows via BPI and ECPay. Reviewed peers' commits and contributed to performance improvements.",
+			"Designed, built, and maintained the internal component library used across the Accelo platform — documented in Storybook, built on MUI. Worked closely with UI/UX designers to translate mockups into reusable, accessible components. Managed library deployment and code reviews; collaborated with AU/PH teams on cross-platform and accessibility requirements.",
 	},
 	{
 		title: "AICPA Membership Site",
@@ -157,6 +150,14 @@ export const PROJECTS: Project[] = [
 		stack: ["React", "Redux", "Styled-components", "TypeScript", "GraphQL"],
 		description:
 			"Developed the profile page module for the AICPA global membership platform, a high-traffic site for professional accountants. Collaborated with international developers and maintained scalable code under production constraints.",
+	},
+	{
+		title: "Squidpay Web Application",
+		url: "https://my.squid.ph/",
+		company: "MobiX Systems",
+		stack: ["React", "Redux", "Styled-components", "TypeScript"],
+		description:
+			"Built and maintained web app features including Add Money flows via BPI and ECPay. Reviewed peers' commits and contributed to performance improvements.",
 	},
 	{
 		title: "Cartrack Fleet Web Application",
@@ -191,7 +192,52 @@ export const PROJECTS: Project[] = [
 	},
 ];
 
+export const PERSONAL_PROJECTS: Project[] = [
+	{
+		title: "Iskawt – Shoot Space Directory",
+		url: "https://github.com/cyriel04/iskawt",
+		company: "Personal Project",
+		stack: [
+			"Next.js",
+			"React",
+			"TypeScript",
+			"Prisma",
+			"PostgreSQL",
+			"MUI",
+			"SCSS",
+			"Jest",
+		],
+		description:
+			"Built a listing directory of private shoot spaces in Metro Manila — apartments, studios, rooftops, cafés, and warehouses open to film and photo shoots. Visitors browse, filter, and send inquiries, while hosts' contact details and addresses stay private.",
+	},
+	{
+		title: "Personal Portfolio",
+		url: "https://github.com/cyriel04/cyriel-basilio-portfolio",
+		company: "Personal Project",
+		stack: ["Next.js", "React", "TypeScript", "MUI", "SCSS", "Vercel"],
+		description:
+			"Built this portfolio and resume site with Next.js (App Router), React, TypeScript, and Material UI. Deployed it on Vercel.",
+	},
+	{
+		title: "327 Photo Dump – Wedding Disposable Camera",
+		url: "https://327photodump.vercel.app",
+		company: "Personal Project",
+		stack: [
+			"Next.js",
+			"React",
+			"TypeScript",
+			"Tailwind CSS",
+			"shadcn/ui",
+			"Google Drive API",
+			"Jest",
+			"Vercel",
+		],
+		description:
+			"Built a mobile-first disposable camera for weddings: guests scan a QR code, take 30 photos or videos, and they upload straight to a shared Google Drive. Kept it app-free and account-free for guests.",
+	},
+];
+
 export const EDUCATION = {
-	school: "Polytechnic University of the Philippines - Sta. Mesa, Manila",
+	school: "Polytechnic University of the Philippines – Sta. Mesa, Manila",
 	degree: "Bachelor of Science in Information Technology",
 };

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PROFILE } from "../constants";
+import { CONTENT_UPDATED, PROFILE } from "../constants";
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
 				</li>
 			</ul>
 			<p className={styles.copyright}>
-				© {new Date().getFullYear()} {PROFILE.name}
+				© {CONTENT_UPDATED.getUTCFullYear()} {PROFILE.name}
 			</p>
 		</footer>
 	);
