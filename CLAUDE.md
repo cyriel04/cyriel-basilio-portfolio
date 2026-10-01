@@ -38,3 +38,8 @@ This is a single-page Next.js 16 (App Router) portfolio site — effectively one
 **Formatting:** Prettier config uses tabs and double quotes (`.prettierrc.json`) — `format:check` is enforced in CI, run `npm run format` before committing.
 
 Deployed to Vercel.
+
+## Git
+
+- Commits and PRs credit only the user: no `Co-Authored-By: Claude` trailer and no "Generated with Claude Code" footer.
+- Do feature work on a branch, not directly on `main`.
