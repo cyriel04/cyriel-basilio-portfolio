@@ -32,7 +32,7 @@ export default function Home() {
 					<Typography
 						variant="h2"
 						component="h1"
-						fontWeight={700}
+						sx={{ fontWeight: 700 }}
 						className={styles.heroTitle}
 					>
 						Hi, I&apos;m{" "}
@@ -41,14 +41,14 @@ export default function Home() {
 					<Typography
 						variant="h5"
 						component="p"
-						fontWeight={500}
+						sx={{ fontWeight: 500 }}
 						className={styles.subtitle}
 					>
 						{PROFILE.title}
 					</Typography>
 					<Typography
 						variant="body1"
-						fontWeight={500}
+						sx={{ fontWeight: 500 }}
 						className={styles.descriptionText}
 					>
 						{SUMMARY}
@@ -76,7 +76,7 @@ export default function Home() {
 					<Typography
 						variant="h5"
 						component="h2"
-						fontWeight={600}
+						sx={{ fontWeight: 600 }}
 						className={styles.sectionTitle}
 					>
 						Experience
@@ -90,7 +90,7 @@ export default function Home() {
 								<Typography
 									variant="subtitle1"
 									component="h3"
-									fontWeight={600}
+									sx={{ fontWeight: 600 }}
 									className={styles.role}
 								>
 									{job.role} · {job.company}
@@ -107,7 +107,7 @@ export default function Home() {
 					<Typography
 						variant="h5"
 						component="h2"
-						fontWeight={600}
+						sx={{ fontWeight: 600 }}
 						id="projects-heading"
 						className={styles.sectionTitle}
 					>
@@ -120,7 +120,7 @@ export default function Home() {
 					<Typography
 						variant="h5"
 						component="h2"
-						fontWeight={600}
+						sx={{ fontWeight: 600 }}
 						id="personal-works-heading"
 						className={styles.sectionTitle}
 					>
@@ -136,7 +136,7 @@ export default function Home() {
 					<Typography
 						variant="h5"
 						component="h2"
-						fontWeight={600}
+						sx={{ fontWeight: 600 }}
 						className={styles.sectionTitle}
 					>
 						Skills
@@ -154,7 +154,7 @@ export default function Home() {
 					<Typography
 						variant="h5"
 						component="h2"
-						fontWeight={600}
+						sx={{ fontWeight: 600 }}
 						className={styles.sectionTitle}
 					>
 						Education
@@ -163,7 +163,7 @@ export default function Home() {
 						<Typography
 							variant="subtitle1"
 							component="h3"
-							fontWeight={600}
+							sx={{ fontWeight: 600 }}
 							className={styles.school}
 						>
 							{EDUCATION.school}

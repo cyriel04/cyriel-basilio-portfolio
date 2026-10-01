@@ -84,7 +84,7 @@ export default function Contact() {
 				<Typography
 					variant="h4"
 					component="h1"
-					fontWeight={700}
+					sx={{ fontWeight: 700 }}
 					className={styles.title}
 				>
 					Get in Touch
@@ -108,7 +108,7 @@ export default function Contact() {
 								<Typography
 									variant="subtitle1"
 									component="span"
-									fontWeight={600}
+									sx={{ fontWeight: 600 }}
 									className={styles.cardLabel}
 								>
 									{link.label}
