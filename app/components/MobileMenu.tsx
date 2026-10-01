@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Drawer, IconButton, useMediaQuery } from "@mui/material";
+import { Drawer, IconButton } from "@mui/material";
 import { Close, Menu } from "@mui/icons-material";
 import styles from "./Navigation.module.scss";
 
@@ -12,9 +12,6 @@ const MENU_ID = "mobile-menu";
 
 const MobileMenu = ({ links }: { links: NavLink[] }) => {
 	const [menuOpen, setMenuOpen] = useState(false);
-	const prefersReducedMotion = useMediaQuery(
-		"(prefers-reduced-motion: reduce)",
-	);
 
 	return (
 		<>
@@ -32,7 +29,6 @@ const MobileMenu = ({ links }: { links: NavLink[] }) => {
 				open={menuOpen}
 				onClose={() => setMenuOpen(false)}
 				keepMounted
-				transitionDuration={prefersReducedMotion ? 0 : undefined}
 				classes={{ paper: styles.drawerPaper }}
 				slotProps={{
 					paper: {

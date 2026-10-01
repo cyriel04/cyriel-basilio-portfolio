@@ -81,11 +81,19 @@
 		transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.iconLink:hover::after,
 .iconLink:focus-visible::after {
 	opacity: 1;
 	transform: translateX(-50%) scale(1);
 	transition-delay: 100ms;
+}
+
+/* Hover only on real pointers so the tooltip doesn't stick after a tap. */
+@media (hover: hover) {
+	.iconLink:hover::after {
+		opacity: 1;
+		transform: translateX(-50%) scale(1);
+		transition-delay: 100ms;
+	}
 }
 
 .nameText {
