@@ -3,7 +3,7 @@ import type { Project } from "../components/ContentCard";
 export const SITE_URL = "https://cyriel-basilio.vercel.app";
 
 // Bump when the site content changes; used for sitemap lastModified.
-export const CONTENT_UPDATED = new Date("2026-09-30");
+export const CONTENT_UPDATED = new Date("2026-10-01");
 
 // Brand colours for places that can't read CSS variables (manifest, viewport,
 // next/og images). Keep in sync with app/globals.css and app/theme.ts.
@@ -188,6 +188,51 @@ export const PROJECTS: Project[] = [
 		stack: ["React", "Java Spring", "Java 8"],
 		description:
 			"Contributed to the mobile banking back-office application built with Java Spring.",
+	},
+];
+
+export const PERSONAL_PROJECTS: Project[] = [
+	{
+		title: "Iskawt – Shoot Space Directory",
+		url: "https://github.com/cyriel04/iskawt",
+		company: "Personal Project",
+		stack: [
+			"Next.js",
+			"React",
+			"TypeScript",
+			"Prisma",
+			"PostgreSQL",
+			"MUI",
+			"SCSS",
+			"Jest",
+		],
+		description:
+			"Built a listing directory of private shoot spaces in Metro Manila — apartments, studios, rooftops, cafés, and warehouses open to film and photo shoots. Visitors browse, filter, and send inquiries, while hosts' contact details and addresses stay private.",
+	},
+	{
+		title: "Personal Portfolio",
+		url: "https://github.com/cyriel04/cyriel-basilio-portfolio",
+		company: "Personal Project",
+		stack: ["Next.js", "React", "TypeScript", "MUI", "SCSS", "Vercel"],
+		description:
+			"Built this portfolio and resume site with Next.js 15 (App Router), React 19, TypeScript, and Material UI. Deployed it on Vercel.",
+	},
+	{
+		title: "327 Photo Dump – Wedding Disposable Camera",
+		url: "https://327photodump.vercel.app",
+		company: "Personal Project",
+		stack: [
+			"Next.js",
+			"React",
+			"TypeScript",
+			"Tailwind CSS",
+			"shadcn/ui",
+			"Google Drive API",
+			"Jest",
+			"Vercel",
+		],
+		description:
+			"Built a mobile-first disposable camera for weddings: guests scan a QR code, take 30 photos or videos, and they upload straight to a shared Google Drive. Kept it app-free and account-free for guests.",
 	},
 ];
 

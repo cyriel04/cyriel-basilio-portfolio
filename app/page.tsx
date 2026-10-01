@@ -5,7 +5,15 @@ import { Button, Tooltip, Typography } from "@mui/material";
 import Article from "./layout/Article";
 import Footer from "./components/Footer";
 import { Description, GitHub, LinkedIn } from "@mui/icons-material";
-import { PROFILE, SUMMARY, SKILLS, EXPERIENCE, EDUCATION } from "./constants";
+import {
+	PROFILE,
+	SUMMARY,
+	SKILLS,
+	EXPERIENCE,
+	PROJECTS,
+	PERSONAL_PROJECTS,
+	EDUCATION,
+} from "./constants";
 
 const allSkills = [...new Set(Object.values(SKILLS).flat())];
 
@@ -120,7 +128,19 @@ export default function Home() {
 					>
 						Projects
 					</Typography>
-					<Article />
+					<Article projects={PROJECTS} label="Projects" />
+				</section>
+
+				<section id="personal-works" className={styles.section}>
+					<Typography
+						variant="h5"
+						component="h2"
+						fontWeight={600}
+						className={styles.sectionTitle}
+					>
+						Personal Works
+					</Typography>
+					<Article projects={PERSONAL_PROJECTS} label="Personal Works" />
 				</section>
 
 				<section id="skills" className={styles.section}>

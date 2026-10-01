@@ -126,6 +126,13 @@
 	color: var(--text-secondary) !important;
 }
 
+@media (max-width: 1200px) {
+	.main {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
 /* Mobile */
 @media (max-width: 767px) {
 	.main {

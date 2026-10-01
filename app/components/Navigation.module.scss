@@ -43,6 +43,7 @@
 .links a {
 	color: var(--text-secondary);
 	font-weight: 500;
+	white-space: nowrap;
 }
 
 .links a:hover {
@@ -94,6 +95,12 @@
 .drawerLinks a:hover {
 	color: var(--accent);
 	text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+	.navigation {
+		padding: 0 3rem;
+	}
 }
 
 @media (max-width: 767px) {
