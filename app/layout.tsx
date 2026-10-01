@@ -18,6 +18,7 @@ import {
 const inter = Inter({
 	subsets: ["latin"],
 	display: "swap",
+	variable: "--font-inter",
 });
 
 const title = `${PROFILE.name} | ${PROFILE.title}`;
@@ -112,15 +113,16 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
+		<html lang="en" className={inter.variable}>
+			<body>
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
 					}}
 				/>
-				<AppRouterCacheProvider>
+				{/* Emits MUI styles into @layer mui so CSS Modules override them. */}
+				<AppRouterCacheProvider options={{ enableCssLayer: true }}>
 					<ThemeProvider theme={theme}>{children}</ThemeProvider>
 				</AppRouterCacheProvider>
 			</body>

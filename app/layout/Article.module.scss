@@ -42,7 +42,7 @@
 			flex: 0 0 calc(48% - 12px);
 		}
 
-		@media (max-width: 800px) {
+		@media (max-width: 767px) {
 			/* 1 per row with peek of next */
 			flex: 0 0 calc(92% - 24px);
 		}
