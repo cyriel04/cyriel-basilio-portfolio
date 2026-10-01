@@ -6,6 +6,16 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    # Majors that eslint-config-next's bundled plugins can't run on yet; they
+    # crash `npm run lint` in CI. Drop each entry once the blocker supports it.
+    ignore:
+      # eslint-plugin-react (via eslint-config-next) only supports eslint ^9.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
+      # typescript-eslint (via eslint-config-next) only supports typescript <6.1.
+      # https://github.com/typescript-eslint/typescript-eslint/issues/10940
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
     # A dependency joins the first group it matches, so the lockstep groups
     # come before the catch-all. Majors outside those groups get their own PR.
     groups:
