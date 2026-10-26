@@ -20,6 +20,10 @@ const securityHeaders = [
 
 const nextConfig = {
 	poweredByHeader: false,
+	experimental: {
+		// The site's CSS is a few KB; inlining it removes render-blocking requests.
+		inlineCss: true,
+	},
 	async headers() {
 		return [{ source: "/:path*", headers: securityHeaders }];
 	},

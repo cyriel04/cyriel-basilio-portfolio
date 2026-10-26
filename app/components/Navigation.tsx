@@ -14,7 +14,7 @@ export const NAV_LINKS = [
 const Navigation = () => {
 	return (
 		<header className={styles.navigation}>
-			<Link href="/" className={styles.logo} aria-label="Home">
+			<Link href="/" className={styles.logo} aria-label="CB, home">
 				<span className={styles.title}>CB</span>
 			</Link>
 			<nav aria-label="Main">
