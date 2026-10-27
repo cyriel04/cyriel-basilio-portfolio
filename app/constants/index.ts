@@ -211,7 +211,7 @@ export const PERSONAL_PROJECTS: Project[] = [
 			"Vercel",
 		],
 		description:
-			"Built a listing directory of private shoot spaces in Metro Manila — apartments, studios, rooftops, cafés, and warehouses open to film and photo shoots. Renters filter by city, space type, light, and crew size, then message hosts through magic-link accounts and an in-app inquiry thread. Privacy is enforced in the data layer: addresses and host contact details never go public, emails carry no user text, and Sentry events are scrubbed to an allowlist.",
+			"Built a listing directory of private shoot spaces in Metro Manila — apartments, studios, rooftops, cafés, and warehouses open to film and photo shoots. Renters filter by city, space type, light, and crew size, then message hosts through magic-link accounts and an in-app inquiry thread. Developed with AI assistance, using Claude Code agents to plan, build, and review each feature.",
 	},
 	{
 		title: "Personal Portfolio",
