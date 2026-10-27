@@ -195,7 +195,7 @@ export const PROJECTS: Project[] = [
 export const PERSONAL_PROJECTS: Project[] = [
 	{
 		title: "Iskawt – Shoot Space Directory",
-		url: "https://github.com/cyriel04/iskawt",
+		url: "https://iskawt-dev.vercel.app",
 		company: "Personal Project",
 		stack: [
 			"Next.js",
@@ -203,12 +203,15 @@ export const PERSONAL_PROJECTS: Project[] = [
 			"TypeScript",
 			"Prisma",
 			"PostgreSQL",
+			"Better Auth",
 			"MUI",
 			"SCSS",
+			"Sentry",
 			"Jest",
+			"Vercel",
 		],
 		description:
-			"Built a listing directory of private shoot spaces in Metro Manila — apartments, studios, rooftops, cafés, and warehouses open to film and photo shoots. Visitors browse, filter, and send inquiries, while hosts' contact details and addresses stay private.",
+			"Built a listing directory of private shoot spaces in Metro Manila — apartments, studios, rooftops, cafés, and warehouses open to film and photo shoots. Renters filter by city, space type, light, and crew size, then message hosts through magic-link accounts and an in-app inquiry thread. Privacy is enforced in the data layer: addresses and host contact details never go public, emails carry no user text, and Sentry events are scrubbed to an allowlist.",
 	},
 	{
 		title: "Personal Portfolio",
