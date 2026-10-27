@@ -16,6 +16,10 @@ updates:
       # https://github.com/typescript-eslint/typescript-eslint/issues/10940
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
+      # Its major should track the Node version we run (.nvmrc), not the
+      # latest, so bump it by hand alongside Node upgrades.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     # A dependency joins the first group it matches, so the lockstep groups
     # come before the catch-all. Majors outside those groups get their own PR.
     groups:
