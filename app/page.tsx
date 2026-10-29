@@ -1,180 +1,110 @@
-import styles from "./page.module.css";
-import Navigation from "./components/Navigation";
-
-import { Typography } from "@mui/material";
-import Article from "./layout/Article";
+import cx from "classnames";
+import ExperienceList from "./components/ExperienceList";
 import Footer from "./components/Footer";
-import { Description, GitHub, LinkedIn } from "@mui/icons-material";
+import PageShell from "./components/PageShell";
+import RecentWorks from "./components/RecentWorks";
 import {
-	PROFILE,
-	SUMMARY,
-	SKILLS,
-	EXPERIENCE,
-	PROJECTS,
-	PERSONAL_PROJECTS,
 	EDUCATION,
+	EXPERIENCE,
+	PERSONAL_PROJECTS,
+	SKILLS,
+	SUMMARY,
 } from "./constants";
+import styles from "./page.module.scss";
 
 const allSkills = [...new Set(Object.values(SKILLS).flat())];
 
-const SOCIAL_LINKS = [
-	{ label: "Resume", href: PROFILE.resumeUrl, Icon: Description },
-	{ label: "LinkedIn", href: PROFILE.linkedin, Icon: LinkedIn },
-	{ label: "GitHub", href: PROFILE.github, Icon: GitHub },
+const HIGHLIGHTS = [
+	"8+ years",
+	"ProSource",
+	"Accelo design system",
+	"Accelo V4",
+	"Forecast",
 ];
+const HIGHLIGHT_PATTERN = new RegExp(`(${HIGHLIGHTS.join("|")})`);
+
+// SUMMARY splits into two paragraphs after the sentence about Forecast.
+const SUMMARY_BREAK = "acquired by Accelo in 2025. ";
+const summaryParagraphs = [
+	SUMMARY.slice(0, SUMMARY.indexOf(SUMMARY_BREAK) + SUMMARY_BREAK.length),
+	SUMMARY.slice(SUMMARY.indexOf(SUMMARY_BREAK) + SUMMARY_BREAK.length),
+].filter(Boolean);
+
+const highlight = (text: string) =>
+	text
+		.split(HIGHLIGHT_PATTERN)
+		.map((part, i) =>
+			HIGHLIGHTS.includes(part) ? <strong key={i}>{part}</strong> : part,
+		);
 
 export default function Home() {
 	return (
-		<>
-			<Navigation />
-			<main className={styles.main}>
-				<section className={styles.hero}>
-					<Typography
-						variant="h2"
-						component="h1"
-						sx={{ fontWeight: 700 }}
-						className={styles.heroTitle}
-					>
-						Hi, I&apos;m{" "}
-						<span className={styles.nameText}>{PROFILE.name}.</span>
-					</Typography>
-					<Typography
-						variant="h5"
-						component="p"
-						sx={{ fontWeight: 500 }}
-						className={styles.subtitle}
-					>
-						{PROFILE.title}
-					</Typography>
-					<Typography
-						variant="body1"
-						sx={{ fontWeight: 500 }}
-						className={styles.descriptionText}
-					>
-						{SUMMARY}
-					</Typography>
+		<PageShell isHome>
+			<section
+				id="about"
+				aria-labelledby="about-heading"
+				className={cx(styles.section, styles.about)}
+			>
+				<h2 id="about-heading" className={styles.label}>
+					About
+				</h2>
+				{summaryParagraphs.map((paragraph) => (
+					<p key={paragraph}>{highlight(paragraph)}</p>
+				))}
+			</section>
 
-					<ul className={styles.aboutButtons}>
-						{SOCIAL_LINKS.map(({ label, href, Icon }) => (
-							<li key={label}>
-								<a
-									href={href}
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label={label}
-									data-tooltip={label}
-									className={styles.iconLink}
-								>
-									<Icon fontSize="large" />
-								</a>
-							</li>
-						))}
-					</ul>
-				</section>
+			<section
+				id="experience"
+				aria-labelledby="experience-heading"
+				className={styles.section}
+			>
+				<h2 id="experience-heading" className={styles.label}>
+					Experience &amp; client work
+				</h2>
+				<ExperienceList jobs={EXPERIENCE} />
+			</section>
 
-				<section id="experience" className={styles.section}>
-					<Typography
-						variant="h5"
-						component="h2"
-						sx={{ fontWeight: 600 }}
-						className={styles.sectionTitle}
-					>
-						Experience
-					</Typography>
-					<ul className={styles.experienceList}>
-						{EXPERIENCE.map((job) => (
-							<li
-								key={`${job.company}-${job.period}`}
-								className={styles.experienceItem}
-							>
-								<Typography
-									variant="subtitle1"
-									component="h3"
-									sx={{ fontWeight: 600 }}
-									className={styles.role}
-								>
-									{job.role} · {job.company}
-								</Typography>
-								<Typography variant="body2" className={styles.period}>
-									{job.period} ({job.type})
-								</Typography>
-							</li>
-						))}
-					</ul>
-				</section>
+			<section
+				id="works"
+				aria-labelledby="works-heading"
+				className={styles.section}
+			>
+				<h2 id="works-heading" className={cx(styles.label, styles.worksLabel)}>
+					Some of my recent works
+				</h2>
+				<RecentWorks projects={PERSONAL_PROJECTS} />
+			</section>
 
-				<section id="projects" className={styles.section}>
-					<Typography
-						variant="h5"
-						component="h2"
-						sx={{ fontWeight: 600 }}
-						id="projects-heading"
-						className={styles.sectionTitle}
-					>
-						Projects
-					</Typography>
-					<Article projects={PROJECTS} labelledBy="projects-heading" />
-				</section>
+			<section
+				id="skills"
+				aria-labelledby="skills-heading"
+				className={styles.section}
+			>
+				<h2 id="skills-heading" className={styles.label}>
+					Skills
+				</h2>
+				<ul className={styles.skills}>
+					{allSkills.map((skill) => (
+						<li key={skill} className={styles.skill}>
+							{skill}
+						</li>
+					))}
+				</ul>
+			</section>
 
-				<section id="personal-works" className={styles.section}>
-					<Typography
-						variant="h5"
-						component="h2"
-						sx={{ fontWeight: 600 }}
-						id="personal-works-heading"
-						className={styles.sectionTitle}
-					>
-						Personal Works
-					</Typography>
-					<Article
-						projects={PERSONAL_PROJECTS}
-						labelledBy="personal-works-heading"
-					/>
-				</section>
+			<section
+				id="education"
+				aria-labelledby="education-heading"
+				className={styles.section}
+			>
+				<h2 id="education-heading" className={styles.label}>
+					Education
+				</h2>
+				<p className={styles.degree}>{EDUCATION.degree}</p>
+				<p className={styles.school}>{EDUCATION.school}</p>
+			</section>
 
-				<section id="skills" className={styles.section}>
-					<Typography
-						variant="h5"
-						component="h2"
-						sx={{ fontWeight: 600 }}
-						className={styles.sectionTitle}
-					>
-						Skills
-					</Typography>
-					<ul className={styles.skills}>
-						{allSkills.map((skill) => (
-							<li key={skill} className={styles.skillTag}>
-								{skill}
-							</li>
-						))}
-					</ul>
-				</section>
-
-				<section id="education" className={styles.section}>
-					<Typography
-						variant="h5"
-						component="h2"
-						sx={{ fontWeight: 600 }}
-						className={styles.sectionTitle}
-					>
-						Education
-					</Typography>
-					<div className={styles.education}>
-						<Typography
-							variant="subtitle1"
-							component="h3"
-							sx={{ fontWeight: 600 }}
-							className={styles.school}
-						>
-							{EDUCATION.school}
-						</Typography>
-						<Typography variant="body2" className={styles.degree}>
-							{EDUCATION.degree}
-						</Typography>
-					</div>
-				</section>
-			</main>
 			<Footer />
-		</>
+		</PageShell>
 	);
 }

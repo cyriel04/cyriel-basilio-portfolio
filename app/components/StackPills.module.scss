@@ -1,0 +1,17 @@
+.pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 10px;
+	list-style: none;
+}
+
+.pill {
+	padding: 3px 11px;
+	font-size: 0.75rem;
+	font-weight: 500;
+	line-height: 1.6;
+	color: var(--accent);
+	background: var(--accent-soft);
+	border-radius: 99px;
+}

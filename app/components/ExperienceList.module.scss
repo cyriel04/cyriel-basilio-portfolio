@@ -1,0 +1,91 @@
+.list {
+	list-style: none;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	gap: 24px;
+	margin: 0 -20px;
+	padding: 20px;
+	border-radius: 8px;
+	transition: background 0.2s ease;
+
+	&:hover {
+		background: rgba(26, 30, 56, 0.7);
+		box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.08);
+	}
+}
+
+.period {
+	padding-top: 3px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+}
+
+.role {
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.4;
+	color: var(--text-primary);
+}
+
+.company,
+.type,
+.internal {
+	font-weight: 400;
+	color: var(--text-muted);
+}
+
+.type {
+	font-size: 0.75rem;
+}
+
+.project {
+	margin-top: 14px;
+	padding-left: 14px;
+	border-left: 2px solid var(--border);
+
+	& + & {
+		margin-top: 18px;
+	}
+}
+
+.projectTitle {
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.5;
+	color: var(--text-primary);
+
+	a {
+		color: var(--text-primary);
+
+		&:hover {
+			color: var(--accent);
+		}
+	}
+}
+
+.description {
+	margin-top: 4px;
+	font-size: 0.875rem;
+	line-height: 1.65;
+	color: var(--text-muted);
+}
+
+@media (max-width: 960px) {
+	.row {
+		grid-template-columns: 1fr;
+		gap: 6px;
+		margin: 0;
+		padding: 16px 0;
+
+		&:hover {
+			background: none;
+			box-shadow: none;
+		}
+	}
+}
