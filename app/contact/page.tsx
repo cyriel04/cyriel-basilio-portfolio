@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Typography } from "@mui/material";
 import { Email, Phone, LinkedIn, GitHub } from "@mui/icons-material";
-import Link from "next/link";
-import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import CopyButton from "../components/CopyButton";
+import PageShell from "../components/PageShell";
 import { PROFILE } from "../constants";
-import styles from "./contact.module.css";
+import styles from "./contact.module.scss";
 
 const title = "Contact";
 // Page-level openGraph/twitter replace the root ones rather than merging, so
@@ -45,91 +44,86 @@ export const metadata: Metadata = {
 const displayUrl = (url: string) =>
 	url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
+// Email and phone get a copy button; profiles open in a new tab.
 const CONTACT_LINKS = [
 	{
 		label: "Email",
 		value: PROFILE.email,
 		href: `mailto:${PROFILE.email}`,
-		icon: <Email fontSize="large" />,
-		external: false,
+		Icon: Email,
+		copy: true,
 	},
 	{
 		label: "Phone",
 		value: PROFILE.phone,
 		href: `tel:${PROFILE.phone.replace(/\s/g, "")}`,
-		icon: <Phone fontSize="large" />,
-		external: false,
+		Icon: Phone,
+		copy: true,
 	},
 	{
 		label: "LinkedIn",
 		value: displayUrl(PROFILE.linkedin),
 		href: PROFILE.linkedin,
-		icon: <LinkedIn fontSize="large" />,
-		external: true,
+		Icon: LinkedIn,
+		copy: false,
 	},
 	{
 		label: "GitHub",
 		value: displayUrl(PROFILE.github),
 		href: PROFILE.github,
-		icon: <GitHub fontSize="large" />,
-		external: true,
+		Icon: GitHub,
+		copy: false,
 	},
 ];
 
+const external = { target: "_blank", rel: "noopener noreferrer" } as const;
+
 export default function Contact() {
 	return (
-		<div className={styles.wrapper}>
-			<Navigation />
-			<main className={styles.main}>
-				<Typography
-					variant="h4"
-					component="h1"
-					sx={{ fontWeight: 700 }}
-					className={styles.title}
-				>
+		<PageShell isHome={false}>
+			<section aria-labelledby="contact-heading" className={styles.content}>
+				<p className={styles.eyebrow}>Contact</p>
+				<h1 id="contact-heading" className={styles.title}>
 					Get in Touch
-				</Typography>
-				<Typography variant="body1" className={styles.subtitle}>
+				</h1>
+				<p className={styles.subtitle}>
 					Open to new opportunities and collaborations. Let&apos;s connect!
-				</Typography>
+				</p>
+
+				<div className={styles.actions}>
+					<a href={`mailto:${PROFILE.email}`} className={styles.primary}>
+						Email me
+					</a>
+					<a href={PROFILE.cvUrl} {...external} className={styles.secondary}>
+						View CV ↗
+					</a>
+				</div>
 
 				<ul className={styles.links}>
-					{CONTACT_LINKS.map((link) => (
-						<li key={link.label}>
+					{CONTACT_LINKS.map(({ label, value, href, Icon, copy }) => (
+						<li key={label} className={styles.row}>
 							<a
-								href={link.href}
-								className={styles.contactCard}
-								{...(link.external && {
-									target: "_blank",
-									rel: "noopener noreferrer",
-								})}
+								href={href}
+								className={styles.rowLink}
+								{...(!copy && external)}
 							>
-								{link.icon}
-								<Typography
-									variant="subtitle1"
-									component="span"
-									sx={{ fontWeight: 600 }}
-									className={styles.cardLabel}
-								>
-									{link.label}
-								</Typography>
-								<Typography
-									variant="body2"
-									component="span"
-									className={styles.cardValue}
-								>
-									{link.value}
-								</Typography>
+								<span className={styles.icon} aria-hidden="true">
+									<Icon fontSize="small" />
+								</span>
+								<span className={styles.text}>
+									<span className={styles.label}>{label}</span>
+									<span className={styles.value}>
+										{value}
+										{!copy && <span className={styles.arrow}> ↗</span>}
+									</span>
+								</span>
 							</a>
+							{copy && <CopyButton value={value} label={label} />}
 						</li>
 					))}
 				</ul>
-
-				<Link href="/" className={styles.backLink}>
-					← Back to Home
-				</Link>
-			</main>
+			</section>
 			<Footer />
-		</div>
+		</PageShell>
 	);
 }

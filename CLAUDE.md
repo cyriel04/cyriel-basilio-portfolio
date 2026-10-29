@@ -21,7 +21,7 @@ Node version is pinned via `.nvmrc` (24).
 
 This is a single-page Next.js 16 (App Router) portfolio site — effectively one route (`app/page.tsx`) composed of section components, no routing complexity beyond `app/contact/page.tsx`.
 
-**Content is data-driven.** All resume/portfolio content (profile info, summary, skills, experience, projects, education) lives in `app/constants/index.ts` as plain exported objects/arrays (`PROFILE`, `SUMMARY`, `SKILLS`, `EXPERIENCE`, `PROJECTS`, `EDUCATION`). Page components map over these constants to render sections — to update site content, edit the constants file, not the components. The `Project` type is defined in `app/components/ContentCard.tsx` and consumed by `app/constants/index.ts` and `app/layout/Article.tsx`.
+**Content is data-driven.** All CV/portfolio content lives in `app/constants/index.ts` as plain exported objects/arrays (`PROFILE`, `SUMMARY`, `SKILLS`, `EXPERIENCE`, `PERSONAL_PROJECTS`, `EDUCATION`). Client projects are nested inside their `EXPERIENCE` job; personal projects carry an optional screenshot (`image`, files in `public/projects/`). Page components map over these constants to render sections — to update site content, edit the constants file, not the components. Types (`Job`, `ClientProject`, `PersonalProject`) live in `app/constants/types.ts`.
 
 **Styling is mixed CSS Modules + MUI:**
 
@@ -31,9 +31,9 @@ This is a single-page Next.js 16 (App Router) portfolio site — effectively one
 
 **Component structure:**
 
-- `app/components/` — reusable UI pieces (`Navigation`, `Footer`, `ContentCard`).
-- `app/layout/Article.tsx` — renders the `PROJECTS` list as a grid of `ContentCard`s (distinct from `app/layout.tsx`, the Next.js root layout).
-- `app/page.tsx` assembles the homepage from anchor-linked sections (`#experience`, `#projects`, `#skills`, `#education`) that `Navigation` scroll-links to.
+- `app/components/PageShell.tsx` — shared layout for `/` and `/contact`: a sticky `Sidebar` (name, role, tagline, `SectionNav`, CV/contact links) beside a scrolling `<main>`; collapses to one column under 960px. `SectionNav` (scroll-spy) and `PointerGlow` are the only client components.
+- `app/components/` also holds the homepage sections (`ExperienceList`, `RecentWorks`, `StackPills`) and `Footer`.
+- `app/page.tsx` assembles the homepage from anchor-linked sections (`#about`, `#experience`, `#works`, `#skills`, `#education`) that `SectionNav` links to.
 
 **Formatting:** Prettier config uses tabs and double quotes (`.prettierrc.json`) — `format:check` is enforced in CI, run `npm run format` before committing.
 
@@ -43,3 +43,13 @@ Deployed to Vercel.
 
 - Commits and PRs credit only the user: no `Co-Authored-By: Claude` trailer and no "Generated with Claude Code" footer.
 - Do feature work on a branch, not directly on `main`.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

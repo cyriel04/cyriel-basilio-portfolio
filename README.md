@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/cyriel04/cyriel-basilio-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/cyriel04/cyriel-basilio-portfolio/actions/workflows/ci.yml)
 
-Personal portfolio and resume site for Cyriel Basilio, Frontend / React developer.
+Personal portfolio and CV site for Cyriel Basilio, Frontend / React developer. A sticky sidebar (name, role, section nav, CV and contact links) sits beside a scrolling column of experience, client work, and screenshot cards for personal projects.
 
 **Live site:** [cyriel-basilio.vercel.app](https://cyriel-basilio.vercel.app)
 
@@ -10,7 +10,7 @@ Personal portfolio and resume site for Cyriel Basilio, Frontend / React develope
 
 - [Next.js 16](https://nextjs.org/) (App Router) + [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Material UI 7](https://mui.com/) (dark theme, Emotion via `@mui/material-nextjs`)
+- [Material UI 9](https://mui.com/) (dark theme and icons, Emotion via `@mui/material-nextjs`)
 - CSS / SCSS Modules composed with [`classnames`](https://github.com/JedWatson/classnames)
 - ESLint (`next/core-web-vitals`), Prettier, Husky
 - GitHub Actions CI, deployed on [Vercel](https://vercel.com/)
@@ -44,11 +44,18 @@ No environment variables are required.
 
 ```
 app/
-├── constants/index.ts   # All site content: profile, summary, skills, experience, projects, education
-├── components/          # Reusable UI: Navigation, Footer, ContentCard
-├── layout/Article.tsx   # Projects grid (renders PROJECTS as ContentCards)
+├── constants/
+│   ├── index.ts         # All site content: profile, summary, skills, experience, projects, education
+│   └── types.ts         # Job, ClientProject, PersonalProject
+├── components/
+│   ├── PageShell.tsx    # Shared layout: sticky Sidebar + scrolling main (one column under 960px)
+│   ├── Sidebar.tsx      # Name, role, tagline, "open to roles" badge, SectionNav, CV/contact links
+│   ├── SectionNav.tsx   # Section links with scroll-spy (client component)
+│   ├── PointerGlow.tsx  # Cursor-following background glow (client component)
+│   ├── ExperienceList.tsx, RecentWorks.tsx, StackPills.tsx, Footer.tsx
+│   └── CopyButton.tsx   # Copy-to-clipboard for email/phone on /contact (client component)
 ├── contact/page.tsx     # /contact route
-├── page.tsx             # Homepage: #experience, #projects, #skills, #education sections
+├── page.tsx             # Homepage: #about, #experience, #works, #skills, #education sections
 ├── layout.tsx           # Root layout: metadata, JSON-LD, MUI theme provider
 ├── theme.ts             # MUI dark theme
 ├── globals.css          # Global styles
@@ -61,8 +68,10 @@ app/
 The site is data-driven. To change what the site says (bio, skills, jobs, projects, education), edit the exported constants in [`app/constants/index.ts`](app/constants/index.ts). You don't need to touch the components.
 
 - `PROFILE` also feeds the page metadata, Open Graph image, manifest and contact page.
-- `EXPERIENCE` and `PROJECTS` render in array order, so keep them newest first.
-- A project with no public link should use `url: null`.
+- `PROFILE.role` and `PROFILE.tagline` are the sidebar's subtitle lines; set `PROFILE.openToWork` to `false` to hide the "Open to new roles" badge. `PROFILE.title` is separate and only feeds metadata.
+- `EXPERIENCE` renders in array order, so keep it newest first. Client projects live in each job's `projects` array.
+- A client project with no public link uses `url: null`; add `internal: true` to label it "internal".
+- `PERSONAL_PROJECTS` render as screenshot cards, the first one featured. Put screenshots in `public/projects/` (16:10 crops best, top-aligned) and reference them with `image: { src, alt }`. A project without `image` shows a placeholder.
 
 ## Code quality
 
@@ -81,4 +90,4 @@ The site is data-driven. To change what the site says (bio, skills, jobs, projec
 
 ## Deployment
 
-The site deploys to Vercel only when changes land on `main`, such as when a pull request is merged. Preview deployments for other branches and pull requests are turned off in [`vercel.json`](vercel.json) via `git.deploymentEnabled`. The canonical URL (`https://cyriel-basilio.vercel.app`) is hardcoded in `app/layout.tsx`, `app/robots.ts` and `app/sitemap.ts`. If the domain changes, update all three.
+The site deploys to Vercel only when changes land on `main`, such as when a pull request is merged. Preview deployments for other branches and pull requests are turned off in [`vercel.json`](vercel.json) via `git.deploymentEnabled`. The canonical URL (`https://cyriel-basilio.vercel.app`) is `SITE_URL` in `app/constants/index.ts`, used by the metadata, robots and sitemap. If the domain changes, update it there.

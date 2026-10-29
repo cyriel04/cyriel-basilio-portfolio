@@ -1,0 +1,75 @@
+.section {
+	margin-bottom: 112px;
+	scroll-margin-top: 88px;
+}
+
+.label {
+	margin-bottom: 24px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--text-primary);
+}
+
+// Adham-style heading, centered between hairlines.
+.worksLabel {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	text-align: center;
+
+	&::before,
+	&::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		background: var(--border);
+	}
+}
+
+.about {
+	line-height: 1.7;
+	color: var(--text-muted);
+
+	p + p {
+		margin-top: 16px;
+	}
+
+	strong {
+		font-weight: 600;
+		color: var(--text-primary);
+	}
+}
+
+.skills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+}
+
+.skill {
+	padding: 5px 12px;
+	font-size: 0.8125rem;
+	color: var(--text-primary);
+	border: 1px solid var(--border);
+	border-radius: 6px;
+}
+
+.degree {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-primary);
+}
+
+.school {
+	color: var(--text-muted);
+}
+
+@media (max-width: 960px) {
+	.section {
+		margin-bottom: 72px;
+		scroll-margin-top: 24px;
+	}
+}

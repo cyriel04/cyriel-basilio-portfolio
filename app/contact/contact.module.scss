@@ -1,0 +1,148 @@
+.content {
+	max-width: 560px;
+}
+
+.eyebrow {
+	margin-bottom: 16px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+
+.title {
+	font-size: 2.5rem;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: var(--text-primary);
+}
+
+.subtitle {
+	margin-top: 14px;
+	line-height: 1.65;
+	color: var(--text-muted);
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 28px;
+}
+
+.primary,
+.secondary {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 0.875rem;
+	font-weight: 600;
+	border: 1px solid var(--accent);
+	border-radius: 6px;
+	transition:
+		background 0.2s ease,
+		color 0.2s ease;
+}
+
+.primary {
+	color: var(--bg-primary);
+	background: var(--accent);
+
+	&:hover {
+		color: var(--bg-primary);
+		background: var(--accent-hover);
+	}
+}
+
+.secondary {
+	color: var(--accent);
+
+	&:hover {
+		background: var(--accent-soft);
+	}
+}
+
+.links {
+	margin-top: 48px;
+	list-style: none;
+	border-top: 1px solid var(--border);
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 14px 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.rowLink {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	gap: 16px;
+	min-width: 0;
+	color: inherit;
+
+	&:hover {
+		color: inherit;
+
+		.icon {
+			color: var(--accent);
+			border-color: var(--border-hover);
+		}
+
+		.value {
+			color: var(--accent);
+		}
+	}
+}
+
+.icon {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	color: var(--text-muted);
+	background: var(--bg-card);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	transition:
+		color 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.label {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+}
+
+.value {
+	overflow-wrap: anywhere;
+	font-size: 0.9375rem;
+	font-weight: 500;
+	color: var(--text-primary);
+	transition: color 0.2s ease;
+}
+
+.arrow {
+	color: var(--accent);
+}
+
+@media (max-width: 960px) {
+	.title {
+		font-size: 2rem;
+	}
+}
