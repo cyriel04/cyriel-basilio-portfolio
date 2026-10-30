@@ -23,8 +23,8 @@ Read `CLAUDE.md` before you start. It is the authority; this file only adds deta
 ## Hard boundaries
 
 - Never edit the `metadata` / `viewport` / JSON-LD in `app/layout.tsx`,
-  `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`, `app/icon.tsx`,
-  `app/apple-icon.tsx`, `app/opengraph-image.tsx`, `next.config.js`,
+  `app/manifest.ts`, `app/robots.ts`, `app/sitemap.ts`, the favicons/app icons
+  (`scripts/generate-icons.mjs`), `app/opengraph-image.tsx`, `next.config.js`,
   `.github/**`, `package.json` or `package-lock.json`. That is backend-dev's
   territory — if your change needs one of them, **stop and report what you need**.
 - No new dependency without asking. MUI, `@mui/icons-material` and `classnames`
@@ -61,8 +61,8 @@ All copy lives in `app/constants/index.ts` (`PROFILE`, `SUMMARY`, `SKILLS`,
   `styled()` or `style={{}}` — put it in the module.
 - The palette is defined twice — `app/theme.ts` (MUI) and `app/globals.css` (CSS
   vars). If you change a colour, change both, and tell backend-dev so the
-  hardcoded copies in `manifest.ts`, `layout.tsx` (`themeColor`), `icon.tsx`,
-  `apple-icon.tsx` and `opengraph-image.tsx` stay in sync.
+  hardcoded copies in `BRAND` (`app/constants/index.ts`) and
+  `scripts/generate-icons.mjs` stay in sync and the icons get regenerated.
 - Dark theme only. Breakpoints use `@media (max-width: …)`; check the existing
   modules and reuse their widths.
 
