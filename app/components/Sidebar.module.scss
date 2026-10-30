@@ -53,11 +53,41 @@
 }
 
 .dot {
+	position: relative;
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
 	background: #7ee0a8;
 	box-shadow: 0 0 8px #7ee0a8;
+
+	// "Live" ring that expands out of the dot and fades.
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		background: #7ee0a8;
+		opacity: 0;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		&::after {
+			animation: pulse 2s ease-out infinite;
+		}
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.6;
+		transform: scale(1);
+	}
+
+	80%,
+	100% {
+		opacity: 0;
+		transform: scale(2.8);
+	}
 }
 
 .nav {
