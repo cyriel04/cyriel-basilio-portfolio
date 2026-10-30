@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { PersonalProject } from "../constants/types";
+import { EXTERNAL_LINK } from "./externalLink";
 import StackPills from "./StackPills";
 import styles from "./RecentWorks.module.scss";
 
@@ -8,12 +9,7 @@ const RecentWorks = ({ projects }: { projects: PersonalProject[] }) => (
 	<ul className={styles.grid}>
 		{projects.map((project) => (
 			<li key={project.title} className={styles.item}>
-				<a
-					href={project.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					className={styles.card}
-				>
+				<a href={project.url} {...EXTERNAL_LINK} className={styles.card}>
 					<div className={styles.shot}>
 						{project.image ? (
 							<Image

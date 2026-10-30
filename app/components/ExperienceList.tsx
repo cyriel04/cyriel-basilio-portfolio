@@ -1,4 +1,5 @@
 import type { Job } from "../constants/types";
+import { EXTERNAL_LINK } from "./externalLink";
 import StackPills from "./StackPills";
 import styles from "./ExperienceList.module.scss";
 
@@ -17,11 +18,7 @@ const ExperienceList = ({ jobs }: { jobs: Job[] }) => (
 						<article key={project.title} className={styles.project}>
 							<h4 className={styles.projectTitle}>
 								{project.url ? (
-									<a
-										href={project.url}
-										target="_blank"
-										rel="noopener noreferrer"
-									>
+									<a href={project.url} {...EXTERNAL_LINK}>
 										{project.title} ↗
 									</a>
 								) : (

@@ -8,25 +8,23 @@
 @layer base, mui;
 
 :root {
-	--border-radius: 12px;
-
 	/* Readable dark theme palette */
 	--bg-primary: #12152a;
-	--bg-secondary: #1a1e38;
 	--bg-card: #1a1e38;
 	--text-primary: #e8ecf4;
-	--text-secondary: #8f98b3;
 	--text-muted: #8f98b3;
 	--accent: #5ba3f5;
 	--accent-hover: #7bb8ff;
 	--accent-soft: rgba(91, 163, 245, 0.12);
-	--accent-border: rgba(91, 163, 245, 0.35);
 	--border: #262b4a;
 	--border-hover: #3a4270;
 
-	/* Matches MUI's dark-mode Tooltip */
-	--tooltip-bg: rgba(97, 97, 97, 0.92);
-	--tooltip-text: #fff;
+	/* "Open to new roles" status */
+	--status: #7ee0a8;
+	--status-soft: rgba(126, 224, 168, 0.06);
+	--status-soft-hover: rgba(126, 224, 168, 0.12);
+	--status-border: #22463a;
+	--status-border-hover: #2f6b55;
 }
 
 @layer base {
