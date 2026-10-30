@@ -3,7 +3,7 @@ import type { Job, PersonalProject } from "./types";
 export const SITE_URL = "https://cyriel-basilio.vercel.app";
 
 // Bump when the site content changes; used for sitemap lastModified.
-export const CONTENT_UPDATED = new Date("2026-10-01");
+export const CONTENT_UPDATED = new Date("2026-10-30");
 
 // Brand colours for places that can't read CSS variables (manifest, viewport,
 // next/og images). Keep in sync with app/globals.css and app/theme.ts.
@@ -15,7 +15,7 @@ export const BRAND = {
 
 export const PROFILE = {
 	name: "Cyriel Basilio",
-	title: "React JS Developer",
+	title: "Frontend Developer",
 	role: "Frontend Developer · React & TypeScript",
 	tagline:
 		"I build fast, accessible product interfaces and the design systems behind them.",
