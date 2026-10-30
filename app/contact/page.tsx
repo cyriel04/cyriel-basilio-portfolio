@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Email, Phone, LinkedIn, GitHub } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import CopyButton from "../components/CopyButton";
 import { EXTERNAL_LINK } from "../components/externalLink";
+import {
+	EmailIcon,
+	GitHubIcon,
+	LinkedInIcon,
+	PhoneIcon,
+} from "../components/icons";
 import PageShell from "../components/PageShell";
 import { PROFILE } from "../constants";
 import styles from "./contact.module.scss";
@@ -51,28 +56,28 @@ const CONTACT_LINKS = [
 		label: "Email",
 		value: PROFILE.email,
 		href: `mailto:${PROFILE.email}`,
-		Icon: Email,
+		Icon: EmailIcon,
 		copy: true,
 	},
 	{
 		label: "Phone",
 		value: PROFILE.phone,
 		href: `tel:${PROFILE.phone.replace(/\s/g, "")}`,
-		Icon: Phone,
+		Icon: PhoneIcon,
 		copy: true,
 	},
 	{
 		label: "LinkedIn",
 		value: displayUrl(PROFILE.linkedin),
 		href: PROFILE.linkedin,
-		Icon: LinkedIn,
+		Icon: LinkedInIcon,
 		copy: false,
 	},
 	{
 		label: "GitHub",
 		value: displayUrl(PROFILE.github),
 		href: PROFILE.github,
-		Icon: GitHub,
+		Icon: GitHubIcon,
 		copy: false,
 	},
 ];
@@ -110,7 +115,7 @@ export default function Contact() {
 								{...(!copy && EXTERNAL_LINK)}
 							>
 								<span className={styles.icon} aria-hidden="true">
-									<Icon fontSize="small" />
+									<Icon />
 								</span>
 								<span className={styles.text}>
 									<span className={styles.label}>{label}</span>
