@@ -23,11 +23,7 @@ This is a single-page Next.js 16 (App Router) portfolio site — effectively one
 
 **Content is data-driven.** All CV/portfolio content lives in `app/constants/index.ts` as plain exported objects/arrays (`PROFILE`, `SUMMARY`, `SKILLS`, `EXPERIENCE`, `PERSONAL_PROJECTS`, `EDUCATION`). Client projects are nested inside their `EXPERIENCE` job; personal projects carry an optional screenshot (`image`, files in `public/projects/`). Page components map over these constants to render sections — to update site content, edit the constants file, not the components. Types (`Job`, `ClientProject`, `PersonalProject`) live in `app/constants/types.ts`.
 
-**Styling is mixed CSS Modules + MUI:**
-
-- Component-scoped styles use CSS/SCSS Modules (`*.module.css` / `*.module.scss`), composed with `classnames` (imported as `cx`).
-- `app/theme.ts` defines a single dark-mode MUI theme, applied globally via `ThemeProvider` in `app/layout.tsx`, wrapped in `AppRouterCacheProvider` (MUI's Next.js App Router emotion cache integration — required for MUI SSR in App Router).
-- `app/globals.css` holds global styles outside the MUI/module system.
+**Styling is CSS/SCSS Modules** (`*.module.css` / `*.module.scss`), composed with `classnames` (imported as `cx`). `app/globals.css` holds the color tokens (`:root` variables) and base resets in `@layer base`. There is no UI component library; icons are inline SVGs in `app/components/icons.tsx`.
 
 **Component structure:**
 

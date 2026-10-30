@@ -28,10 +28,6 @@ updates:
         patterns:
           - "next"
           - "eslint-config-next"
-      # MUI packages release together (all update types).
-      mui:
-        patterns:
-          - "@mui/*"
       minor-and-patch:
         patterns:
           - "*"

@@ -1,11 +1,9 @@
 /*
- * Cascade order: MUI's emotion styles are emitted into the "mui" layer
- * (enableCssLayer in app/layout.tsx). The global resets below live in "base",
- * declared first so MUI components still win over them. CSS Modules are
- * unlayered, so they win over both. Keep this the first @layer statement in
- * the file so the order holds after minification.
+ * Cascade order: the global resets below live in the "base" layer. CSS Modules
+ * are unlayered, so they always win over these resets regardless of source
+ * order or specificity.
  */
-@layer base, mui;
+@layer base;
 
 :root {
 	/* Readable dark theme palette */
@@ -70,11 +68,7 @@
 	}
 }
 
-/*
- * Unlayered + !important so it beats module and MUI inline transitions.
- * Transitions use 0s, not a tiny non-zero value: a non-zero duration stops
- * the MUI Drawer from moving focus into itself when it opens.
- */
+/* Unlayered + !important so it beats module styles. */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

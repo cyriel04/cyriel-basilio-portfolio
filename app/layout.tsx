@@ -3,9 +3,6 @@ import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
-import theme from "./theme";
-import { ThemeProvider } from "@mui/material";
 import {
 	BRAND,
 	EDUCATION,
@@ -126,10 +123,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 						__html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
 					}}
 				/>
-				{/* Emits MUI styles into @layer mui so CSS Modules override them. */}
-				<AppRouterCacheProvider options={{ enableCssLayer: true }}>
-					<ThemeProvider theme={theme}>{children}</ThemeProvider>
-				</AppRouterCacheProvider>
+				{children}
 			</body>
 		</html>
 	);

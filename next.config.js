@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-// Static security headers. A script CSP is deliberately omitted: it would need
-// per-request nonces (forcing dynamic rendering) and conflicts with Emotion's
-// inline styles.
+// Static security headers. A script CSP is deliberately omitted: Next.js's
+// inline scripts would need per-request nonces, forcing dynamic rendering.
 const securityHeaders = [
 	{ key: "X-Content-Type-Options", value: "nosniff" },
 	{ key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

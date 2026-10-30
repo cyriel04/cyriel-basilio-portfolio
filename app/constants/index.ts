@@ -6,7 +6,7 @@ export const SITE_URL = "https://cyriel-basilio.vercel.app";
 export const CONTENT_UPDATED = new Date("2026-10-30");
 
 // Brand colours for places that can't read CSS variables (manifest, viewport,
-// next/og images). Keep in sync with app/globals.css and app/theme.ts.
+// next/og images). Keep in sync with app/globals.css.
 export const BRAND = {
 	background: "#12152a",
 	accent: "#5ba3f5",
@@ -245,13 +245,13 @@ export const PERSONAL_PROJECTS: PersonalProject[] = [
 	{
 		title: "Personal Portfolio",
 		url: "https://github.com/cyriel04/cyriel-basilio-portfolio",
-		stack: ["Next.js", "React", "TypeScript", "MUI", "SCSS", "Vercel"],
+		stack: ["Next.js", "React", "TypeScript", "SCSS", "Vercel"],
 		image: {
 			src: "/projects/portfolio.png",
 			alt: "Cyriel Basilio portfolio homepage",
 		},
 		description:
-			"Built this portfolio and CV site with Next.js (App Router), React, TypeScript, and Material UI. Deployed it on Vercel.",
+			"Built this portfolio and CV site with Next.js (App Router), React, TypeScript, and SCSS Modules. Deployed it on Vercel.",
 	},
 ];
 
