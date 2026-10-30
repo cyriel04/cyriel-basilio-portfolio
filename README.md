@@ -60,7 +60,8 @@ app/
 ├── layout.tsx           # Root layout: metadata, JSON-LD, MUI theme provider
 ├── theme.ts             # MUI dark theme
 ├── globals.css          # Global styles
-├── icon.tsx, apple-icon.tsx, opengraph-image.tsx   # Generated icons and OG image
+├── favicon.ico, icon.png, apple-icon.png          # Favicons (white "CB" on the site navy)
+├── opengraph-image.tsx                             # Generated OG image
 └── manifest.ts, robots.ts, sitemap.ts              # Web manifest and SEO routes
 ```
 
