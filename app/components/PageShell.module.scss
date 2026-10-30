@@ -1,3 +1,5 @@
+@use "../styles/breakpoints" as bp;
+
 .shell {
 	position: relative;
 	z-index: 1;
@@ -7,11 +9,29 @@
 	max-width: 1240px;
 	margin: 0 auto;
 	padding: 0 48px;
+	// Top/bottom breathing room shared with Sidebar; shrinks on short screens.
+	--page-top: clamp(48px, 10vh, 88px);
+	--page-bottom: clamp(32px, 6vh, 56px);
 }
 
 .main {
 	min-width: 0;
-	padding: 88px 0 48px;
+	padding: var(--page-top) 0 48px;
+}
+
+// Exactly one screen tall with the footer pinned to the bottom, so a short
+// page (contact) doesn't scroll.
+.fit {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-height: 100dvh;
+	padding-bottom: var(--page-bottom);
+
+	> :last-child {
+		margin-top: auto;
+		padding-top: 40px;
+	}
 }
 
 .glow {
@@ -26,14 +46,38 @@
 	);
 }
 
-@media (max-width: 960px) {
+@include bp.narrow-columns {
+	.shell {
+		gap: 48px;
+		padding: 0 40px;
+	}
+}
+
+// One column, capped so lines stay readable on tablets.
+@include bp.single-column {
 	.shell {
 		grid-template-columns: 1fr;
 		gap: 0;
-		padding: 0 20px;
+		max-width: 720px;
+		padding: 0 32px;
 	}
 
 	.main {
 		padding-top: 32px;
+	}
+
+	.fit {
+		min-height: 0;
+		padding-top: 24px;
+
+		> :last-child {
+			padding-top: 32px;
+		}
+	}
+}
+
+@include bp.phone {
+	.shell {
+		padding: 0 20px;
 	}
 }

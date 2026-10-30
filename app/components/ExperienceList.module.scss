@@ -1,3 +1,5 @@
+@use "../styles/breakpoints" as bp;
+
 .list {
 	list-style: none;
 }
@@ -76,10 +78,16 @@
 	color: var(--text-muted);
 }
 
-@media (max-width: 960px) {
+// Period sits above the role once the column is too narrow for two tracks.
+@include bp.narrow {
 	.row {
 		grid-template-columns: 1fr;
 		gap: 6px;
+	}
+}
+
+@include bp.single-column {
+	.row {
 		margin: 0;
 		padding: 16px 0;
 

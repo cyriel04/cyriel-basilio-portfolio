@@ -1,14 +1,7 @@
+@use "../styles/breakpoints" as bp;
+
 .content {
 	max-width: 560px;
-}
-
-.eyebrow {
-	margin-bottom: 16px;
-	font-size: 0.75rem;
-	font-weight: 700;
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-	color: var(--accent);
 }
 
 .title {
@@ -141,7 +134,15 @@
 	color: var(--accent);
 }
 
-@media (max-width: 960px) {
+// Stacked layout: separate the name header from the contact content.
+@include bp.single-column {
+	.content {
+		padding-top: 24px;
+		border-top: 1px solid var(--border);
+	}
+}
+
+@include bp.phone {
 	.title {
 		font-size: 2rem;
 	}

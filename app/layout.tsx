@@ -113,7 +113,12 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en" className={inter.variable}>
+		<html
+			lang="en"
+			className={inter.variable}
+			// Smooth-scroll in-page anchors, but jump instantly on route changes.
+			data-scroll-behavior="smooth"
+		>
 			<body>
 				<script
 					type="application/ld+json"

@@ -80,9 +80,8 @@ const external = { target: "_blank", rel: "noopener noreferrer" } as const;
 
 export default function Contact() {
 	return (
-		<PageShell isHome={false}>
+		<PageShell isHome={false} fitViewport>
 			<section aria-labelledby="contact-heading" className={styles.content}>
-				<p className={styles.eyebrow}>Contact</p>
 				<h1 id="contact-heading" className={styles.title}>
 					Get in Touch
 				</h1>
