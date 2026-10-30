@@ -23,12 +23,17 @@ const HIGHLIGHTS = [
 ];
 const HIGHLIGHT_PATTERN = new RegExp(`(${HIGHLIGHTS.join("|")})`);
 
-// SUMMARY splits into two paragraphs after the sentence about Forecast.
+// SUMMARY splits into two paragraphs after the sentence about Forecast; if
+// that sentence is ever reworded, it falls back to a single paragraph.
 const SUMMARY_BREAK = "acquired by Accelo in 2025. ";
-const summaryParagraphs = [
-	SUMMARY.slice(0, SUMMARY.indexOf(SUMMARY_BREAK) + SUMMARY_BREAK.length),
-	SUMMARY.slice(SUMMARY.indexOf(SUMMARY_BREAK) + SUMMARY_BREAK.length),
-].filter(Boolean);
+const breakAt = SUMMARY.indexOf(SUMMARY_BREAK);
+const summaryParagraphs =
+	breakAt === -1
+		? [SUMMARY]
+		: [
+				SUMMARY.slice(0, breakAt + SUMMARY_BREAK.length),
+				SUMMARY.slice(breakAt + SUMMARY_BREAK.length),
+			].filter(Boolean);
 
 const highlight = (text: string) =>
 	text

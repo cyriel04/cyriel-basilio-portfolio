@@ -4,10 +4,15 @@ import { EXTERNAL_LINK } from "./externalLink";
 import StackPills from "./StackPills";
 import styles from "./RecentWorks.module.scss";
 
-// The first project is featured across both columns.
+// The first project is featured across both columns; the rest share a row
+// (one column on phones). Keep in sync with app/styles/_breakpoints.scss.
+const FEATURED_SIZES =
+	"(max-width: 599px) 100vw, (max-width: 1023px) 720px, 680px";
+const CARD_SIZES = "(max-width: 599px) 100vw, (max-width: 1023px) 360px, 340px";
+
 const RecentWorks = ({ projects }: { projects: PersonalProject[] }) => (
 	<ul className={styles.grid}>
-		{projects.map((project) => (
+		{projects.map((project, index) => (
 			<li key={project.title} className={styles.item}>
 				<a href={project.url} {...EXTERNAL_LINK} className={styles.card}>
 					<div className={styles.shot}>
@@ -16,7 +21,7 @@ const RecentWorks = ({ projects }: { projects: PersonalProject[] }) => (
 								src={project.image.src}
 								alt={project.image.alt}
 								fill
-								sizes="(max-width: 599px) 100vw, (max-width: 1023px) 720px, 680px"
+								sizes={index === 0 ? FEATURED_SIZES : CARD_SIZES}
 								className={styles.image}
 							/>
 						) : (

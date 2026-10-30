@@ -60,7 +60,7 @@ export const EXPERIENCE: Job[] = [
 				url: "https://forecast.app/",
 				stack: ["React", "JavaScript", "GraphQL", "MySQL", "Java"],
 				description:
-					"Contributing to the Forecast platform following its acquisition by Accelo in 2025. Building the timesheet module end-to-end: designed MySQL schema for statuses and audit logs, implemented GraphQL resolvers, and built the React frontend. Owning full-stack scope independently in a JavaScript codebase distinct from the TypeScript-based Accelo platform.",
+					"Contributed to the Forecast platform following its acquisition by Accelo in 2025. Built the timesheet module end-to-end: designed MySQL schema for statuses and audit logs, implemented GraphQL resolvers, and built the React frontend. Owned full-stack scope independently in a JavaScript codebase distinct from the TypeScript-based Accelo platform.",
 			},
 			{
 				title: "Accelo V4 – Professional Services Automation Platform",

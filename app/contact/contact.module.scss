@@ -147,3 +147,22 @@
 		font-size: 2rem;
 	}
 }
+
+// Tighter spacing so the page still fits one screen on short laptops.
+@include bp.short {
+	.subtitle {
+		margin-top: 10px;
+	}
+
+	.actions {
+		margin-top: 20px;
+	}
+
+	.links {
+		margin-top: 32px;
+	}
+
+	.row {
+		padding: 10px 0;
+	}
+}

@@ -6,9 +6,13 @@
 @layer base;
 
 :root {
+	/* Dark native UI: scrollbars, form controls. */
+	color-scheme: dark;
+
 	/* Readable dark theme palette */
 	--bg-primary: #12152a;
 	--bg-card: #1a1e38;
+	--bg-inset: #0d1020;
 	--text-primary: #e8ecf4;
 	--text-muted: #8f98b3;
 	--accent: #5ba3f5;
@@ -30,10 +34,6 @@
 		box-sizing: border-box;
 		padding: 0;
 		margin: 0;
-	}
-
-	html {
-		scroll-padding-top: 2rem;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {

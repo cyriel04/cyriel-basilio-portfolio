@@ -81,3 +81,9 @@
 		padding: 0 20px;
 	}
 }
+
+@include bp.short {
+	.fit > :last-child {
+		padding-top: 24px;
+	}
+}

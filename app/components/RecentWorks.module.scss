@@ -50,7 +50,7 @@
 	position: relative;
 	aspect-ratio: 16 / 10;
 	overflow: hidden;
-	background: #0d1020;
+	background: var(--bg-inset);
 	border-bottom: 1px solid var(--border);
 }
 
@@ -69,7 +69,7 @@
 	font-size: 1.125rem;
 	font-weight: 700;
 	text-align: center;
-	color: #56607a;
+	color: var(--text-muted);
 }
 
 .body {
