@@ -2,7 +2,8 @@
 
 .section {
 	margin-bottom: 112px;
-	scroll-margin-top: 88px;
+	// Land section headings level with the sidebar's top edge.
+	scroll-margin-top: var(--page-top);
 }
 
 .label {

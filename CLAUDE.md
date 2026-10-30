@@ -28,7 +28,7 @@ This is a single-page Next.js 16 (App Router) portfolio site — effectively one
 **Component structure:**
 
 - `app/components/PageShell.tsx` — shared layout for `/` and `/contact`: a sticky `Sidebar` (name, role, tagline, `SectionNav`, CV/contact links) beside a scrolling `<main>`; collapses to one column under 1024px. `SectionNav` (scroll-spy), `PointerGlow` and `CopyButton` are the only client components.
-- `app/styles/_breakpoints.scss` — shared breakpoint mixins (`single-column`, `narrow-columns`, `narrow`, `phone`); `@use` it in modules instead of hardcoding widths.
+- `app/styles/_breakpoints.scss` — shared breakpoint mixins (`single-column`, `narrow-columns`, `narrow`, `phone`, and the height-based `short`); `@use` it in modules instead of hardcoding widths.
 - `app/components/` also holds the homepage sections (`ExperienceList`, `RecentWorks`, `StackPills`) and `Footer`.
 - `app/page.tsx` assembles the homepage from anchor-linked sections (`#about`, `#experience`, `#works`, `#skills`, `#education`) that `SectionNav` links to.
 

@@ -5,6 +5,8 @@ $single-column-max: 1023px;
 // Two columns, but the content column is too narrow for side-by-side rows.
 $narrow-columns-max: 1279px;
 $phone-max: 599px;
+// Short laptop viewports (1366×768 leaves ~657px inside the browser).
+$short-max-height: 760px;
 
 @mixin single-column {
 	@media (max-width: $single-column-max) {
@@ -27,6 +29,12 @@ $phone-max: 599px;
 
 @mixin phone {
 	@media (max-width: $phone-max) {
+		@content;
+	}
+}
+
+@mixin short {
+	@media (max-height: $short-max-height) {
 		@content;
 	}
 }

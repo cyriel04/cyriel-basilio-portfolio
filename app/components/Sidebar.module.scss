@@ -6,6 +6,8 @@
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
+	// Excludes collapsing mobile/tablet browser toolbars where supported.
+	height: 100dvh;
 	// Short windows: scroll inside the sidebar rather than clip the links.
 	overflow-y: auto;
 	// The scroll box clips overflow, so leave room for focus outlines.

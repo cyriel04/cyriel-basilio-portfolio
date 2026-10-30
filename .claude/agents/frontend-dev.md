@@ -64,7 +64,8 @@ All copy lives in `app/constants/index.ts` (`PROFILE`, `SUMMARY`, `SKILLS`,
   module. Global resets live in `@layer base`; modules are unlayered and win.
 - **Breakpoints:** `@use "../styles/breakpoints" as bp;` and the mixins
   `bp.single-column` (< 1024px, sidebar stacks), `bp.narrow-columns`
-  (1024–1279px), `bp.narrow` (< 1280px) and `bp.phone` (< 600px). Don't hardcode
+  (1024–1279px), `bp.narrow` (< 1280px), `bp.phone` (< 600px) and the height query `bp.short`
+  (≤ 760px tall, used to keep `/contact` on one screen). Don't hardcode
   widths. `RecentWorks`' `next/image` `sizes` must stay in sync with them.
 - If you change a brand colour, also tell backend-dev so `BRAND`
   (`app/constants/index.ts`) and `scripts/generate-icons.mjs` stay in sync and
