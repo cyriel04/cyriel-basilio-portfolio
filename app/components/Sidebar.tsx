@@ -33,7 +33,7 @@ const Sidebar = ({ isHome }: { isHome: boolean }) => {
 				// Leads to /contact; plain text when already there.
 				(isHome ? (
 					<Link href="/contact" className={cx(styles.badge, styles.badgeLink)}>
-						{badgeContent} →
+						{badgeContent} <span aria-hidden="true">→</span>
 					</Link>
 				) : (
 					<p className={styles.badge}>{badgeContent}</p>
