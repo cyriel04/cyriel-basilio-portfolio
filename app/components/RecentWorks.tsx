@@ -20,7 +20,7 @@ const RecentWorks = ({ projects }: { projects: PersonalProject[] }) => (
 								src={project.image.src}
 								alt={project.image.alt}
 								fill
-								sizes="(max-width: 960px) 100vw, 680px"
+								sizes="(max-width: 599px) 100vw, (max-width: 1023px) 720px, 680px"
 								className={styles.image}
 							/>
 						) : (

@@ -1,3 +1,5 @@
+@use "../styles/breakpoints" as bp;
+
 .grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -92,7 +94,7 @@
 	color: var(--text-muted);
 }
 
-@media (max-width: 960px) {
+@include bp.phone {
 	.grid {
 		grid-template-columns: 1fr;
 	}

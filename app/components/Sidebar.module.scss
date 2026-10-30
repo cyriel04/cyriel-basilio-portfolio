@@ -1,3 +1,5 @@
+@use "../styles/breakpoints" as bp;
+
 .sidebar {
 	position: sticky;
 	top: 0;
@@ -8,7 +10,7 @@
 	overflow-y: auto;
 	// The scroll box clips overflow, so leave room for focus outlines.
 	margin-inline: -6px;
-	padding: 88px 6px 56px;
+	padding: var(--page-top) 6px var(--page-bottom);
 }
 
 .name {
@@ -130,16 +132,20 @@
 	}
 }
 
-@media (max-width: 960px) {
+@include bp.narrow-columns {
+	.name {
+		font-size: 2.5rem;
+	}
+}
+
+@include bp.single-column {
 	.sidebar {
 		position: static;
 		height: auto;
 		overflow: visible;
-		padding: 56px 0 24px;
-	}
-
-	.name {
-		font-size: 2.25rem;
+		// No scroll box here, so the focus-ring gutter isn't needed.
+		margin-inline: 0;
+		padding: 64px 0 24px;
 	}
 
 	.nav {
@@ -149,5 +155,31 @@
 	.links {
 		margin-top: 0;
 		padding-top: 28px;
+	}
+
+	// Off the homepage only name and role are shown; the page itself carries
+	// the links (contact repeats CV, email and profiles).
+	.compact {
+		padding-bottom: 8px;
+
+		.tagline,
+		.badge,
+		.links {
+			display: none;
+		}
+	}
+}
+
+@include bp.phone {
+	.sidebar {
+		padding-top: 48px;
+	}
+
+	.name {
+		font-size: 2.25rem;
+	}
+
+	.links {
+		gap: 12px 16px;
 	}
 }

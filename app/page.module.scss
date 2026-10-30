@@ -1,3 +1,5 @@
+@use "./styles/breakpoints" as bp;
+
 .section {
 	margin-bottom: 112px;
 	scroll-margin-top: 88px;
@@ -67,7 +69,7 @@
 	color: var(--text-muted);
 }
 
-@media (max-width: 960px) {
+@include bp.single-column {
 	.section {
 		margin-bottom: 72px;
 		scroll-margin-top: 24px;

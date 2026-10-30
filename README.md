@@ -48,13 +48,14 @@ app/
 │   ├── index.ts         # All site content: profile, summary, skills, experience, projects, education
 │   └── types.ts         # Job, ClientProject, PersonalProject
 ├── components/
-│   ├── PageShell.tsx    # Shared layout: sticky Sidebar + scrolling main (one column under 960px)
+│   ├── PageShell.tsx    # Shared layout: sticky Sidebar + scrolling main (one column under 1024px)
 │   ├── Sidebar.tsx      # Name, role, tagline, "open to roles" badge, SectionNav, CV/contact links
 │   ├── SectionNav.tsx   # Section links with scroll-spy (client component)
 │   ├── PointerGlow.tsx  # Cursor-following background glow (client component)
 │   ├── ExperienceList.tsx, RecentWorks.tsx, StackPills.tsx, Footer.tsx
 │   └── CopyButton.tsx   # Copy-to-clipboard for email/phone on /contact (client component)
-├── contact/page.tsx     # /contact route
+├── styles/_breakpoints.scss  # Shared breakpoint mixins for SCSS modules
+├── contact/page.tsx     # /contact route (fits one screen; no scrolling)
 ├── page.tsx             # Homepage: #about, #experience, #works, #skills, #education sections
 ├── layout.tsx           # Root layout: metadata, JSON-LD, MUI theme provider
 ├── theme.ts             # MUI dark theme

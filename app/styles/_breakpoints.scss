@@ -1,0 +1,32 @@
+// Shared layout breakpoints. Keep RecentWorks' next/image `sizes` in sync.
+
+// Below this the sidebar stacks above the content in one column.
+$single-column-max: 1023px;
+// Two columns, but the content column is too narrow for side-by-side rows.
+$narrow-columns-max: 1279px;
+$phone-max: 599px;
+
+@mixin single-column {
+	@media (max-width: $single-column-max) {
+		@content;
+	}
+}
+
+@mixin narrow-columns {
+	@media (min-width: $single-column-max + 1) and (max-width: $narrow-columns-max) {
+		@content;
+	}
+}
+
+// Anything narrower than a comfortable two-column row: single column or narrow columns.
+@mixin narrow {
+	@media (max-width: $narrow-columns-max) {
+		@content;
+	}
+}
+
+@mixin phone {
+	@media (max-width: $phone-max) {
+		@content;
+	}
+}

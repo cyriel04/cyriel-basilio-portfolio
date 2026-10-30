@@ -1,4 +1,5 @@
 import Link from "next/link";
+import cx from "classnames";
 import { PROFILE } from "../constants";
 import SectionNav from "./SectionNav";
 import styles from "./Sidebar.module.scss";
@@ -13,7 +14,7 @@ const Sidebar = ({ isHome }: { isHome: boolean }) => {
 	const Name = isHome ? "h1" : "p";
 
 	return (
-		<header className={styles.sidebar}>
+		<header className={cx(styles.sidebar, !isHome && styles.compact)}>
 			<Name className={styles.name}>
 				<Link href="/">{PROFILE.name}</Link>
 			</Name>
