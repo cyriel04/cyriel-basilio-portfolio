@@ -46,10 +46,22 @@
 	margin-top: 20px;
 	padding: 5px 12px;
 	font-size: 0.75rem;
-	color: #7ee0a8;
-	background: rgba(126, 224, 168, 0.06);
-	border: 1px solid #22463a;
+	color: var(--status);
+	background: var(--status-soft);
+	border: 1px solid var(--status-border);
 	border-radius: 99px;
+}
+
+.badgeLink {
+	transition:
+		background 0.2s ease,
+		border-color 0.2s ease;
+
+	&:hover {
+		color: var(--status);
+		background: var(--status-soft-hover);
+		border-color: var(--status-border-hover);
+	}
 }
 
 .dot {
@@ -57,8 +69,8 @@
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
-	background: #7ee0a8;
-	box-shadow: 0 0 8px #7ee0a8;
+	background: var(--status);
+	box-shadow: 0 0 8px var(--status);
 
 	// "Live" ring that expands out of the dot and fades.
 	&::after {
@@ -66,7 +78,7 @@
 		position: absolute;
 		inset: 0;
 		border-radius: 50%;
-		background: #7ee0a8;
+		background: var(--status);
 		opacity: 0;
 	}
 
@@ -187,14 +199,12 @@
 		padding-top: 28px;
 	}
 
-	// Off the homepage only name and role are shown; the page itself carries
-	// the links (contact repeats CV, email and profiles).
+	// Stacked layout off the homepage: just name and role above the page.
 	.compact {
 		padding-bottom: 8px;
 
 		.tagline,
-		.badge,
-		.links {
+		.badge {
 			display: none;
 		}
 	}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Email, Phone, LinkedIn, GitHub } from "@mui/icons-material";
 import Footer from "../components/Footer";
 import CopyButton from "../components/CopyButton";
+import { EXTERNAL_LINK } from "../components/externalLink";
 import PageShell from "../components/PageShell";
 import { PROFILE } from "../constants";
 import styles from "./contact.module.scss";
@@ -76,8 +77,6 @@ const CONTACT_LINKS = [
 	},
 ];
 
-const external = { target: "_blank", rel: "noopener noreferrer" } as const;
-
 export default function Contact() {
 	return (
 		<PageShell isHome={false} fitViewport>
@@ -93,7 +92,11 @@ export default function Contact() {
 					<a href={`mailto:${PROFILE.email}`} className={styles.primary}>
 						Email me
 					</a>
-					<a href={PROFILE.cvUrl} {...external} className={styles.secondary}>
+					<a
+						href={PROFILE.cvUrl}
+						{...EXTERNAL_LINK}
+						className={styles.secondary}
+					>
 						View CV ↗
 					</a>
 				</div>
@@ -104,7 +107,7 @@ export default function Contact() {
 							<a
 								href={href}
 								className={styles.rowLink}
-								{...(!copy && external)}
+								{...(!copy && EXTERNAL_LINK)}
 							>
 								<span className={styles.icon} aria-hidden="true">
 									<Icon fontSize="small" />

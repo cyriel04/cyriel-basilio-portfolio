@@ -1,17 +1,26 @@
 import Link from "next/link";
 import cx from "classnames";
 import { PROFILE } from "../constants";
+import { EXTERNAL_LINK } from "./externalLink";
 import SectionNav from "./SectionNav";
 import styles from "./Sidebar.module.scss";
 
-const LINKS = [
+const PROFILE_LINKS = [
 	{ label: "GitHub", href: PROFILE.github },
 	{ label: "LinkedIn", href: PROFILE.linkedin },
 ];
 
 // The name is the page's h1 on the homepage only; other pages bring their own.
+// Off the homepage (i.e. /contact) the links row is left out: the page itself
+// carries the CV, email and profile links.
 const Sidebar = ({ isHome }: { isHome: boolean }) => {
 	const Name = isHome ? "h1" : "p";
+	const badgeContent = (
+		<>
+			<span className={styles.dot} aria-hidden="true" />
+			Open to new roles
+		</>
+	);
 
 	return (
 		<header className={cx(styles.sidebar, !isHome && styles.compact)}>
@@ -20,49 +29,39 @@ const Sidebar = ({ isHome }: { isHome: boolean }) => {
 			</Name>
 			<p className={styles.role}>{PROFILE.role}</p>
 			<p className={styles.tagline}>{PROFILE.tagline}</p>
-			{PROFILE.openToWork && (
-				<p className={styles.badge}>
-					<span className={styles.dot} aria-hidden="true" />
-					Open to new roles
-				</p>
-			)}
+			{PROFILE.openToWork &&
+				// Leads to /contact; plain text when already there.
+				(isHome ? (
+					<Link href="/contact" className={cx(styles.badge, styles.badgeLink)}>
+						{badgeContent} →
+					</Link>
+				) : (
+					<p className={styles.badge}>{badgeContent}</p>
+				))}
 
 			<SectionNav hrefPrefix={isHome ? "" : "/"} />
 
-			<ul className={styles.links}>
-				<li>
-					<a
-						href={PROFILE.cvUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						className={styles.cv}
-					>
-						CV ↗
-					</a>
-				</li>
-				{LINKS.map(({ label, href }) => (
-					<li key={label}>
-						<a
-							href={href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className={styles.link}
-						>
-							{label}
+			{isHome && (
+				<ul className={styles.links}>
+					<li>
+						<a href={PROFILE.cvUrl} {...EXTERNAL_LINK} className={styles.cv}>
+							CV ↗
 						</a>
 					</li>
-				))}
-				<li>
-					<a href={`mailto:${PROFILE.email}`} className={styles.link}>
-						Email
-					</a>
-				</li>
-				<li>
-					<Link href="/contact" className={styles.link}>
-						Contact
-					</Link>
-				</li>
-			</ul>
+					{PROFILE_LINKS.map(({ label, href }) => (
+						<li key={label}>
+							<a href={href} {...EXTERNAL_LINK} className={styles.link}>
+								{label}
+							</a>
+						</li>
+					))}
+					<li>
+						<Link href="/contact" className={styles.link}>
+							Contact
+						</Link>
+					</li>
+				</ul>
+			)}
 		</header>
 	);
 };
