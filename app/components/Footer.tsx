@@ -9,7 +9,7 @@ const INSPIRATIONS = [
 
 const Footer = () => (
 	<footer className={styles.footer}>
-		<p>
+		<p className={styles.credits}>
 			Built with Next.js and deployed on Vercel. Loosely inspired by{" "}
 			<a href={INSPIRATIONS[0].href} {...EXTERNAL_LINK} className={styles.link}>
 				{INSPIRATIONS[0].name}

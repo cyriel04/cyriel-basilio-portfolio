@@ -17,6 +17,31 @@
 	}
 }
 
+// Deliberately near-invisible: a quiet easter egg that only surfaces on
+// hover/focus or text selection.
+.credits {
+	color: var(--border-hover);
+	transition: color 0.3s ease;
+
+	.link {
+		font-weight: inherit;
+		color: inherit;
+	}
+
+	&:hover,
+	&:focus-within {
+		color: var(--text-muted);
+
+		.link {
+			color: var(--text-primary);
+		}
+
+		.link:hover {
+			color: var(--accent);
+		}
+	}
+}
+
 @include bp.single-column {
 	.footer {
 		margin-top: 64px;
