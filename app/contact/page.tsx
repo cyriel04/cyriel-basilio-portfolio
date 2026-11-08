@@ -94,13 +94,19 @@ export default function Contact() {
 				</p>
 
 				<div className={styles.actions}>
-					<a href={`mailto:${PROFILE.email}`} className={styles.primary}>
+					<a
+						href={`mailto:${PROFILE.email}`}
+						className={styles.primary}
+						data-umami-event="Email click"
+					>
 						Email me
 					</a>
 					<a
 						href={PROFILE.cvUrl}
 						{...EXTERNAL_LINK}
 						className={styles.secondary}
+						data-umami-event="CV click"
+						data-umami-event-location="contact"
 					>
 						View CV ↗
 					</a>
@@ -113,6 +119,7 @@ export default function Contact() {
 								href={href}
 								className={styles.rowLink}
 								{...(!copy && EXTERNAL_LINK)}
+								data-umami-event={`${label} click`}
 							>
 								<span className={styles.icon} aria-hidden="true">
 									<Icon />

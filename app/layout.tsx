@@ -2,6 +2,8 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 import {
 	BRAND,
@@ -19,6 +21,9 @@ const inter = Inter({
 });
 
 const title = `${PROFILE.name} | ${PROFILE.title}`;
+
+// Umami tracks link clicks (data-umami-event attributes); unset, it's left out.
+const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
@@ -124,6 +129,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					}}
 				/>
 				{children}
+				<Analytics />
+				{umamiWebsiteId && (
+					<Script
+						src="https://cloud.umami.is/script.js"
+						data-website-id={umamiWebsiteId}
+						// Only count the live site, not localhost.
+						data-domains={new URL(SITE_URL).hostname}
+					/>
+				)}
 			</body>
 		</html>
 	);

@@ -94,3 +94,8 @@ The site is data-driven. To change what the site says (bio, skills, jobs, projec
 ## Deployment
 
 The site deploys to Vercel only when changes land on `main`, such as when a pull request is merged. Preview deployments for other branches and pull requests are turned off in [`vercel.json`](vercel.json) via `git.deploymentEnabled`. The canonical URL (`https://cyriel-basilio.vercel.app`) is `SITE_URL` in `app/constants/index.ts`, used by the metadata, robots and sitemap. If the domain changes, update it there.
+
+## Analytics
+
+- **Vercel Web Analytics** reports traffic. Enable it under the project's Analytics tab in Vercel.
+- **Umami** reports CV and contact link clicks, marked with `data-umami-event` attributes. Set `NEXT_PUBLIC_UMAMI_WEBSITE_ID` in Vercel to your Umami website ID and redeploy. Without it, the Umami script isn't loaded. It only counts visits on the `SITE_URL` hostname.

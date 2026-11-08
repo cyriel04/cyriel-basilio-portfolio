@@ -44,7 +44,13 @@ const Sidebar = ({ isHome }: { isHome: boolean }) => {
 			{isHome && (
 				<ul className={styles.links}>
 					<li>
-						<a href={PROFILE.cvUrl} {...EXTERNAL_LINK} className={styles.cv}>
+						<a
+							href={PROFILE.cvUrl}
+							{...EXTERNAL_LINK}
+							className={styles.cv}
+							data-umami-event="CV click"
+							data-umami-event-location="sidebar"
+						>
 							CV ↗
 						</a>
 					</li>
