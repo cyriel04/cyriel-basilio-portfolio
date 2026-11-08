@@ -2,6 +2,7 @@ import Link from "next/link";
 import cx from "classnames";
 import { PROFILE } from "../constants";
 import { EXTERNAL_LINK } from "./externalLink";
+import { ChevronRightIcon } from "./icons";
 import SectionNav from "./SectionNav";
 import styles from "./Sidebar.module.scss";
 
@@ -33,7 +34,7 @@ const Sidebar = ({ isHome }: { isHome: boolean }) => {
 				// Leads to /contact; plain text when already there.
 				(isHome ? (
 					<Link href="/contact" className={cx(styles.badge, styles.badgeLink)}>
-						{badgeContent} <span aria-hidden="true">→</span>
+						{badgeContent} <ChevronRightIcon size={14} />
 					</Link>
 				) : (
 					<p className={styles.badge}>{badgeContent}</p>

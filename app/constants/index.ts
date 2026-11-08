@@ -3,7 +3,7 @@ import type { Job, PersonalProject } from "./types";
 export const SITE_URL = "https://cyriel-basilio.vercel.app";
 
 // Bump when the site content changes; used for sitemap lastModified.
-export const CONTENT_UPDATED = new Date("2026-10-30");
+export const CONTENT_UPDATED = new Date("2026-11-09");
 
 // Brand colours for places that can't read CSS variables (manifest, viewport,
 // next/og images). Keep in sync with app/globals.css.
@@ -21,7 +21,6 @@ export const PROFILE = {
 		"I build fast, accessible product interfaces and the design systems behind them.",
 	// Shows the "Open to new roles" badge in the sidebar.
 	openToWork: true,
-	phone: "+63 927 956 5916",
 	email: "cyrielneil@gmail.com",
 	linkedin: "https://linkedin.com/in/cyriel-basilio/",
 	github: "https://github.com/cyriel04",
@@ -38,14 +37,40 @@ export const SUMMARY =
 
 export const SKILLS = {
 	frontend: ["React", "TypeScript", "JavaScript", "Next.js", "HTML5", "CSS3"],
-	styling: ["SCSS", "Styled-components", "Ant Design", "Material UI"],
+	styling: [
+		"SCSS",
+		"Styled-components",
+		"Ant Design",
+		"Material UI",
+		"Tailwind CSS",
+		"Shadcn/ui",
+	],
 	testing: ["Jest", "Cypress"],
 	state: ["Redux (Thunk)", "Zustand"],
-	tools: ["Webpack 5", "Storybook", "Stripe", "Mixpanel"],
+	tools: ["Webpack 5", "Storybook", "Stripe", "Mixpanel", "Vercel"],
 	design: ["Figma", "Sketch"],
-	backend: ["GraphQL (Apollo)", "Node.js", "MySQL", "PHP", "Java Spring"],
+	backend: [
+		"GraphQL (Apollo)",
+		"Node.js",
+		"MySQL",
+		"PostgreSQL",
+		"PHP",
+		"Java Spring",
+	],
 	ai: ["Cursor", "Claude"],
 	other: ["Agile", "Jira", "Code review", "Strong collaboration"],
+};
+
+export const SKILL_GROUP_LABELS: Record<keyof typeof SKILLS, string> = {
+	frontend: "Frontend",
+	styling: "Styling",
+	testing: "Testing",
+	state: "State management",
+	tools: "Tools",
+	design: "Design",
+	backend: "Backend",
+	ai: "AI tooling",
+	other: "Ways of working",
 };
 
 export const EXPERIENCE: Job[] = [
@@ -230,7 +255,7 @@ export const PERSONAL_PROJECTS: PersonalProject[] = [
 			"React",
 			"TypeScript",
 			"Tailwind CSS",
-			"shadcn/ui",
+			"Shadcn/ui",
 			"Google Drive API",
 			"Jest",
 			"Vercel",
