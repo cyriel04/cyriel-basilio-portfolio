@@ -7,12 +7,13 @@ import {
 	EDUCATION,
 	EXPERIENCE,
 	PERSONAL_PROJECTS,
+	SKILL_GROUP_LABELS,
 	SKILLS,
 	SUMMARY,
 } from "./constants";
 import styles from "./page.module.scss";
 
-const allSkills = [...new Set(Object.values(SKILLS).flat())];
+const skillGroups = Object.entries(SKILLS) as [keyof typeof SKILLS, string[]][];
 
 const HIGHLIGHTS = [
 	"8+ years",
@@ -75,7 +76,7 @@ export default function Home() {
 				className={styles.section}
 			>
 				<h2 id="works-heading" className={cx(styles.label, styles.worksLabel)}>
-					Some of my recent works
+					Some of my recent work
 				</h2>
 				<RecentWorks projects={PERSONAL_PROJECTS} />
 			</section>
@@ -88,13 +89,22 @@ export default function Home() {
 				<h2 id="skills-heading" className={styles.label}>
 					Skills
 				</h2>
-				<ul className={styles.skills}>
-					{allSkills.map((skill) => (
-						<li key={skill} className={styles.skill}>
-							{skill}
-						</li>
+				<dl className={styles.skillGroups}>
+					{skillGroups.map(([group, skills]) => (
+						<div key={group} className={styles.skillGroup}>
+							<dt className={styles.skillLabel}>{SKILL_GROUP_LABELS[group]}</dt>
+							<dd>
+								<ul className={styles.skills}>
+									{skills.map((skill) => (
+										<li key={skill} className={styles.skill}>
+											{skill}
+										</li>
+									))}
+								</ul>
+							</dd>
+						</div>
 					))}
-				</ul>
+				</dl>
 			</section>
 
 			<section

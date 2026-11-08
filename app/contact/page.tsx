@@ -2,12 +2,7 @@ import type { Metadata } from "next";
 import Footer from "../components/Footer";
 import CopyButton from "../components/CopyButton";
 import { EXTERNAL_LINK } from "../components/externalLink";
-import {
-	EmailIcon,
-	GitHubIcon,
-	LinkedInIcon,
-	PhoneIcon,
-} from "../components/icons";
+import { EmailIcon, GitHubIcon, LinkedInIcon } from "../components/icons";
 import PageShell from "../components/PageShell";
 import { PROFILE } from "../constants";
 import styles from "./contact.module.scss";
@@ -21,7 +16,7 @@ const ogImage = {
 	height: 630,
 	alt: `${PROFILE.name} | ${PROFILE.title}`,
 };
-const description = `Get in touch with ${PROFILE.name}, ${PROFILE.title}. Reach out via email, phone, LinkedIn, or GitHub.`;
+const description = `Get in touch with ${PROFILE.name}, ${PROFILE.title}. Reach out via email, LinkedIn, or GitHub.`;
 
 export const metadata: Metadata = {
 	title,
@@ -50,20 +45,13 @@ export const metadata: Metadata = {
 const displayUrl = (url: string) =>
 	url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-// Email and phone get a copy button; profiles open in a new tab.
+// Email gets a copy button; profiles open in a new tab.
 const CONTACT_LINKS = [
 	{
 		label: "Email",
 		value: PROFILE.email,
 		href: `mailto:${PROFILE.email}`,
 		Icon: EmailIcon,
-		copy: true,
-	},
-	{
-		label: "Phone",
-		value: PROFILE.phone,
-		href: `tel:${PROFILE.phone.replace(/\s/g, "")}`,
-		Icon: PhoneIcon,
 		copy: true,
 	},
 	{

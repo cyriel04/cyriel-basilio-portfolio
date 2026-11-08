@@ -17,8 +17,21 @@
 	}
 }
 
-// Deliberately near-invisible: a quiet easter egg that only surfaces on
-// hover/focus or text selection.
+@mixin credits-revealed {
+	color: var(--text-muted);
+
+	.link {
+		color: var(--text-primary);
+	}
+
+	.link:hover {
+		color: var(--accent);
+	}
+}
+
+// Deliberately near-invisible: a quiet easter egg that surfaces on hover/focus
+// or text selection. Always readable on touch screens, which can't hover, and
+// for visitors whose system asks for more contrast.
 .credits {
 	color: var(--border-hover);
 	transition: color 0.3s ease;
@@ -30,15 +43,11 @@
 
 	&:hover,
 	&:focus-within {
-		color: var(--text-muted);
+		@include credits-revealed;
+	}
 
-		.link {
-			color: var(--text-primary);
-		}
-
-		.link:hover {
-			color: var(--accent);
-		}
+	@media (hover: none), (prefers-contrast: more) {
+		@include credits-revealed;
 	}
 }
 
