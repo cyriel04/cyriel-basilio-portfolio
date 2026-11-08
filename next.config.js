@@ -26,6 +26,12 @@ const nextConfig = {
 	async headers() {
 		return [{ source: "/:path*", headers: securityHeaders }];
 	},
+	async rewrites() {
+		// Serves the Umami tracker first-party; see app/v/api/send/route.ts.
+		return [
+			{ source: "/v/s.js", destination: "https://cloud.umami.is/script.js" },
+		];
+	},
 };
 
 module.exports = nextConfig;

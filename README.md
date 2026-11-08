@@ -99,4 +99,4 @@ The site deploys to Vercel only when changes land on `main`, such as when a pull
 ## Analytics
 
 - **Vercel Web Analytics** reports traffic. Enable it under the project's Analytics tab in Vercel.
-- **Umami** reports CV and contact link clicks, marked with `data-umami-event` attributes. Set `NEXT_PUBLIC_UMAMI_WEBSITE_ID` in Vercel to your Umami website ID and redeploy. Without it, the Umami script isn't loaded. It only counts visits on the `SITE_URL` hostname.
+- **Umami** reports CV and contact link clicks, marked with `data-umami-event` attributes. Set `NEXT_PUBLIC_UMAMI_WEBSITE_ID` in Vercel to your Umami website ID and redeploy. Without it, the Umami script isn't loaded. It only counts visits on the `SITE_URL` hostname. The script and events go through this site's `/v` path (`next.config.js` and `app/v/api/send/route.ts`) so content blockers don't drop them.
