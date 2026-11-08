@@ -1,4 +1,4 @@
-// Inline SVG icons for /contact, copied from @mui/icons-material (MIT;
+// Inline SVG icons, copied from @mui/icons-material (MIT;
 // Material Design icons, Apache 2.0) so they look the same without MUI.
 // Decorative: callers render them next to a text label.
 
@@ -19,6 +19,10 @@ const icon = (d: string) => {
 	);
 	return Icon;
 };
+
+export const ChevronRightIcon = icon(
+	"M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z",
+);
 
 export const EmailIcon = icon(
 	"M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4-8 5-8-5V6l8 5 8-5z",
