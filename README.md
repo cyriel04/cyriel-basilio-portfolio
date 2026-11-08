@@ -53,11 +53,12 @@ app/
 │   ├── SectionNav.tsx   # Section links with scroll-spy (client component)
 │   ├── PointerGlow.tsx  # Cursor-following background glow (client component)
 │   ├── ExperienceList.tsx, RecentWorks.tsx, StackPills.tsx, Footer.tsx
-│   ├── CopyButton.tsx   # Copy-to-clipboard for email/phone on /contact (client component)
-│   ├── icons.tsx        # Inline SVG icons (Email, Phone, LinkedIn, GitHub)
+│   ├── CopyButton.tsx   # Copy-to-clipboard for email on /contact (client component)
+│   ├── icons.tsx        # Inline SVG icons (Email, LinkedIn, GitHub)
 │   └── externalLink.ts  # EXTERNAL_LINK: target/rel props for new-tab links
 ├── styles/_breakpoints.scss  # Shared breakpoint mixins for SCSS modules
 ├── contact/page.tsx     # /contact route (fits one screen; no scrolling)
+├── not-found.tsx        # Custom 404 page
 ├── page.tsx             # Homepage: #about, #experience, #works, #skills, #education sections
 ├── layout.tsx           # Root layout: metadata, JSON-LD, font
 ├── globals.css          # Global styles

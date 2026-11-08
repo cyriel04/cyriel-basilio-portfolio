@@ -17,10 +17,13 @@ const PageShell = ({
 	children: ReactNode;
 }) => (
 	<>
+		<a href="#main" className={styles.skipLink}>
+			Skip to content
+		</a>
 		<PointerGlow />
 		<div className={styles.shell}>
 			<Sidebar isHome={isHome} />
-			<main className={cx(styles.main, fitViewport && styles.fit)}>
+			<main id="main" className={cx(styles.main, fitViewport && styles.fit)}>
 				{children}
 			</main>
 		</div>

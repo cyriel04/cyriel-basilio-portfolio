@@ -7,7 +7,7 @@ import styles from "./Sidebar.module.scss";
 export const SECTIONS = [
 	{ id: "about", label: "About" },
 	{ id: "experience", label: "Experience" },
-	{ id: "works", label: "Recent Works" },
+	{ id: "works", label: "Recent Work" },
 	{ id: "skills", label: "Skills" },
 	{ id: "education", label: "Education" },
 ] as const;

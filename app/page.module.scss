@@ -45,6 +45,24 @@
 	}
 }
 
+.skillGroups {
+	display: grid;
+	gap: 16px;
+}
+
+.skillGroup {
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	gap: 16px;
+}
+
+.skillLabel {
+	// Lines up with the text inside the first row of pills.
+	padding-top: 6px;
+	font-size: 0.8125rem;
+	color: var(--text-muted);
+}
+
 .skills {
 	display: flex;
 	flex-wrap: wrap;
@@ -74,5 +92,16 @@
 	.section {
 		margin-bottom: 72px;
 		scroll-margin-top: 24px;
+	}
+}
+
+@include bp.phone {
+	.skillGroup {
+		grid-template-columns: 1fr;
+		gap: 8px;
+	}
+
+	.skillLabel {
+		padding-top: 0;
 	}
 }
