@@ -132,7 +132,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 				<Analytics />
 				{umamiWebsiteId && (
 					<Script
-						src="https://cloud.umami.is/script.js"
+						src="/v/s.js"
+						data-host-url={`${SITE_URL}/v`}
 						data-website-id={umamiWebsiteId}
 						// Only count the live site, not localhost.
 						data-domains={new URL(SITE_URL).hostname}
