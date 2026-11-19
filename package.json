@@ -22,7 +22,7 @@
 		"next": "16.4.6",
 		"react": "^19.3.1",
 		"react-dom": "^19.3.1",
-		"sass": "^1.108.1"
+		"sass": "^1.108.2"
 	},
 	"devDependencies": {
 		"@types/node": "^26.6.6",
@@ -31,8 +31,8 @@
 		"eslint": "^9.39.2",
 		"eslint-config-next": "16.4.6",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.6.0",
-		"prettier": "^3.9.10",
+		"lint-staged": "^17.6.1",
+		"prettier": "^3.10.1",
 		"typescript": "^6.0.3"
 	},
 	"lint-staged": {
